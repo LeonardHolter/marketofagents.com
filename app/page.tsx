@@ -1,6 +1,3 @@
-import { getBuiltinRequestContext } from "next/dist/server/after/builtin-request-context";
-import Image from "next/image";
-
 export default function Home() {
   return (
     <div className="navbar bg-base-100">
