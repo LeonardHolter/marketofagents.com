@@ -1,6 +1,6 @@
 export default function AgentCard() {
   return (
-    <div className="card bg-base-100 w-64 shadow-xl">
+    <div className="card bg-base-100 w-64 shadow-xl hover:shadow-2xl hover:scale-105 transition-transform duration-300 ease-in-out">
       <figure>
         <img
           src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
