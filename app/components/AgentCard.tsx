@@ -1,5 +1,11 @@
 "use static";
-export default function AgentCard({ children }) {
+import { ReactNode } from "react";
+
+interface AgentCardProps {
+  children: ReactNode;
+}
+
+export default function AgentCard({ children }: AgentCardProps) {
   return (
     <div className="card bg-base-100 w-64 shadow-xl hover:shadow-2xl hover:scale-105 transition-transform duration-300 ease-in-out">
       <figure>
