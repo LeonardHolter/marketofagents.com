@@ -1,13 +1,13 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Footer from "./components/Footer";
+import AgentCardList from "./components/AgentCardList";
 
 export default function Home() {
   return (
     <div>
       <Navbar></Navbar>
-      <Hero></Hero>
-      <Footer></Footer>
+
+      <AgentCardList></AgentCardList>
     </div>
   );
 }
