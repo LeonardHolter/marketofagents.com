@@ -1,3 +1,4 @@
+"use static";
 export default function AgentCard({ children }) {
   return (
     <div className="card bg-base-100 w-64 shadow-xl hover:shadow-2xl hover:scale-105 transition-transform duration-300 ease-in-out">
