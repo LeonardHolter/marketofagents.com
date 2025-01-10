@@ -1,4 +1,6 @@
 "use static";
+
+import Link from "next/link";
 export default function Navbar() {
   return (
     <div className="navbar bg-base-100 border-b border-gray-200 shadow-sm ">
@@ -8,7 +10,7 @@ export default function Navbar() {
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>Log In</a>
+            <Link href="/blog">Blog</Link>
           </li>
           <li>
             <details>
