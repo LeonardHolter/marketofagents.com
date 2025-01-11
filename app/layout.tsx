@@ -36,7 +36,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Market Of Agents",
     description: "The Official Marketplace for AI Agents",
-    image: "/MOALogo.jpeg",
   },
 };
 
