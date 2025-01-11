@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: "Market Of Agents",
   description: "The Official Marketplace for AI Agents",
   keywords:
-    "AI agents, marketplace, artificial intelligence, buy AI agents, sell AI tools",
+    "AI agents, marketplace for AI agents, AI agents, hire AI agents, rent AI agents",
   author: "Market Of Agents Team",
   viewport: "width=device-width, initial-scale=1.0",
   themeColor: "#000000",
