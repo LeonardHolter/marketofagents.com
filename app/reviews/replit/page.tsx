@@ -81,7 +81,7 @@ const Page = () => {
             So this proves my point. We have gotten to an age where you can hire
             AI Agents to code full-blown web applications and websites for you.
             Check the Agent out here: https://replit.com/~ Keep in mind that
-            this agent is not perfect. Because it's powered by an LLM, it
+            this agent is not perfect. Because it&apos;s powered by an LLM, it
             executes well-documented tasks on the internet. So, it will most
             likely struggle if you want it to incorporate an unknown API. Also,
             it tends to favour certain tech stacks like React front-end and a
