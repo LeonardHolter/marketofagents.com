@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 
 interface AgentCardProps {
   children: ReactNode;
+  imagepath?: string; // Add the imagepath property as optional
 }
 
 export default function AgentCard({ children, imagepath }: AgentCardProps) {
