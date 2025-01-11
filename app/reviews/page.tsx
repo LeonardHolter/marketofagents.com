@@ -1,3 +1,4 @@
+"use static";
 import React from "react";
 import AgentCard from "../components/AgentCard";
 import Link from "next/link";

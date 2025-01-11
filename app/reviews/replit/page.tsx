@@ -1,3 +1,4 @@
+"use static";
 import React from "react";
 
 const Page = () => {
