@@ -5,12 +5,16 @@ interface AgentCardProps {
   children: ReactNode;
 }
 
-export default function AgentCard({ children }: AgentCardProps) {
+export default function AgentCard({ children, imagepath }: AgentCardProps) {
   return (
     <div className="card bg-base-100 w-64 shadow-xl hover:shadow-2xl hover:scale-105 transition-transform duration-300 ease-in-out">
       <figure>
         <img
-          src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+          src={
+            imagepath
+              ? imagepath
+              : "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+          }
           alt="Shoes"
         />
       </figure>
