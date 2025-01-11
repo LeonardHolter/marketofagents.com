@@ -21,14 +21,14 @@ const Page = () => {
               how to do it myself, the experience could not be worse. Working
               through a laggy UI like Wix or other no-code editors with limited
               functionality is just not worth it, especially if you want to
-              create something production-ready. Don't worry, though. I have a
-              solution for you. Ladies and gentlemen. Boys and girls. Let me
-              present to you your next “Chat GPT moment”: Replit Agent. This
+              create something production-ready. Don&apos;t worry, though. I
+              have a solution for you. Ladies and gentlemen. Boys and girls. Let
+              me present to you your next “Chat GPT moment”: Replit Agent. This
               tool inputs your ideas and outputs them as fully functioning web
-              applications. Don’t believe me? Let me show you. I have always
-              wanted my own personal website, so why not make one right now? I
-              wrote the following prompt and asked Replit Agent to build the
-              website for me.
+              applications. Don&apos;t believe me? Let me show you. I have
+              always wanted my own personal website, so why not make one right
+              now? I wrote the following prompt and asked Replit Agent to build
+              the website for me.
             </p>
             <img
               className="max-w-full h-auto mx-auto rounded-lg"
