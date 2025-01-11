@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Market Of Agents",
-  description: "The Official Market for AI Agents",
+  description: "The Official Marketplace for AI Agents",
 };
 
 export default function RootLayout({
