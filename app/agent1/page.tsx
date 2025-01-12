@@ -4,21 +4,21 @@ import Navbar from "../components/Navbar";
 import axios from "axios";
 
 const Page = () => {
-  const [companyName, setCompanyName] = useState("");
-  const [founders, setFounders] = useState("");
+  const [initialState, setInitialState] = useState(""); // Updated variable name for clarity
+  const [mood, setMood] = useState(""); // Updated to store the mood from the backend
 
   const handleSearch = async () => {
     try {
       const response = await axios.post(
-        "https://fathomless-wave-32180-23c8bcd4cf72.herokuapp.com/get_founders",
+        "https://fathomless-wave-32180-23c8bcd4cf72.herokuapp.com/get_mood", // Correct endpoint
         {
-          company_name: companyName,
+          initial_state: initialState, // Correct key as expected by the backend
         }
       );
 
-      setFounders(response.data.founders);
+      setMood(response.data.mood); // Extract and set the mood from the response
     } catch (error) {
-      console.error("Error fetching founders:", error);
+      console.error("Error fetching mood:", error);
     }
   };
 
@@ -26,24 +26,24 @@ const Page = () => {
     <>
       <Navbar />
       <div className="bg-white p-8 rounded-lg shadow-lg text-center">
-        <h1 className="text-2xl font-bold mb-4">Company Information Lookup</h1>
+        <h1 className="text-2xl font-bold mb-4">Check your mood</h1>
         <p className="text-gray-600 mb-6">
-          Enter a company name to get detailed information powered by AI
+          Enter your initial state and get your mood!
         </p>
         <input
           type="text"
           placeholder="Type here"
           className="input input-bordered w-full max-w-xs"
-          value={companyName}
-          onChange={(e) => setCompanyName(e.target.value)}
+          value={initialState}
+          onChange={(e) => setInitialState(e.target.value)}
         />
         <button className="btn btn-primary mt-4" onClick={handleSearch}>
-          Search
+          Get Mood
         </button>
-        {founders && (
+        {mood && (
           <div className="mt-6">
-            <h2 className="text-xl font-bold">Founders:</h2>
-            <p>{founders}</p>
+            <h2 className="text-xl font-bold">Your Mood:</h2>
+            <p>{mood}</p>
           </div>
         )}
       </div>
