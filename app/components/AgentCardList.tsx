@@ -8,9 +8,9 @@ export default function AgentList() {
       <Link href="/agent1">
         <AgentCard>Compagent</AgentCard>{" "}
       </Link>
-      <AgentCard>Agent</AgentCard>
-      <AgentCard>Agent</AgentCard>
-      <AgentCard>Agent</AgentCard>
+      <Link href="/replit_review">
+        <AgentCard imagepath="/replit.png">Replit Agent</AgentCard>{" "}
+      </Link>
     </div>
   );
 }
