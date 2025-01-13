@@ -9,8 +9,11 @@ import axios from "axios";
 const Page = () => {
   const [prompt, setPrompt] = useState("");
   const [image, setImage] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false); // Loading state
 
   const handleGenerateImage = async () => {
+    setLoading(true); // Start loading
+    setImage(null); // Clear previous image
     try {
       const response = await axios.post(
         "https://fathomless-wave-32180-23c8bcd4cf72.herokuapp.com/generate_image",
@@ -29,6 +32,8 @@ const Page = () => {
       setImage(imageUrl); // Store the image URL
     } catch (error) {
       console.error("Error generating image:", error);
+    } finally {
+      setLoading(false); // End loading
     }
   };
 
@@ -47,8 +52,12 @@ const Page = () => {
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
         />
-        <button className="btn btn-primary mt-4" onClick={handleGenerateImage}>
-          Generate Image
+        <button
+          className={`btn btn-primary mt-4 ${loading ? "btn-disabled" : ""}`}
+          onClick={handleGenerateImage}
+          disabled={loading} // Disable button when loading
+        >
+          {loading ? "Generating..." : "Generate Image"}
         </button>
         {image && (
           <div className="mt-6 flex flex-col items-center">
