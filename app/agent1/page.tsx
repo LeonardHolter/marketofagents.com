@@ -5,21 +5,21 @@ import Navbar from "../components/Navbar";
 import axios from "axios";
 
 const Page = () => {
-  const [prompt, setPrompt] = useState(""); // To store the user's input prompt
-  const [image, setImage] = useState(null); // To store the image returned by the backend
+  const [prompt, setPrompt] = useState("");
+  const [image, setImage] = useState<string | null>(null);
 
   const handleGenerateImage = async () => {
     try {
       const response = await axios.post(
-        "https://fathomless-wave-32180-23c8bcd4cf72.herokuapp.com/generate_image", // Replace with your Flask API endpoint
+        "https://fathomless-wave-32180-23c8bcd4cf72.herokuapp.com/generate_image",
         {
-          inputs: prompt, // Sending the prompt as 'inputs' to the backend
+          inputs: prompt,
           parameters: {
             guidance_scale: 1.0,
             num_inference_steps: 7,
           },
         },
-        { responseType: "blob" } // Important to handle binary image data
+        { responseType: "blob" }
       );
 
       // Convert the binary data to a URL for the image
