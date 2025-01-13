@@ -27,9 +27,7 @@ const Page = () => {
       <Navbar />
       <div className="bg-white p-8 rounded-lg shadow-lg text-center">
         <h1 className="text-2xl font-bold mb-4">Check your mood</h1>
-        <p className="text-gray-600 mb-6">
-          Enter your initial state and get your mood!
-        </p>
+        <p className="text-gray-600 mb-6">Enter your name and get your mood!</p>
         <input
           type="text"
           placeholder="Type here"

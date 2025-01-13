@@ -6,7 +6,7 @@ export default function AgentList() {
   return (
     <div className="flex flew-wrap sm:flex-row sm:flex-wrap flex-row justify-center items-center gap-12 mt-20">
       <Link href="/agent1">
-        <AgentCard>Compagent</AgentCard>{" "}
+        <AgentCard imagepath="/mood.jpg">Mood Agent</AgentCard>{" "}
       </Link>
       <Link href="/replit_review">
         <AgentCard imagepath="/replit.png">Replit Agent</AgentCard>{" "}
