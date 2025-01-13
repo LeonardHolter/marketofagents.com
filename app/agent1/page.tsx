@@ -49,12 +49,12 @@ const Page = () => {
           Generate Image
         </button>
         {image && (
-          <div className="mt-6">
-            <h2 className="text-xl font-bold">Generated Image:</h2>
+          <div className="mt-6 flex flex-col items-center">
+            <h2 className="text-xl font-bold mb-4">Generated Image:</h2>
             <img
               src={image}
               alt="Generated"
-              className="mt-4 w-1/4 max-w-full rounded-lg shadow-lg"
+              className="w-1/4 max-w-full rounded-lg shadow-lg"
             />
           </div>
         )}
