@@ -1,77 +1,108 @@
 "use client";
 
-//git test
+import React, { useState, useEffect } from "react";
 
-import React, { useState } from "react";
-import Navbar from "../components/Navbar";
-import axios from "axios";
+const MemeGenerator = () => {
+  const [topic, setTopic] = useState("");
+  const [memeUrl, setMemeUrl] = useState("");
+  const [error, setError] = useState("");
+  const [seconds, setSeconds] = useState(0);
+  const [timerRunning, setTimerRunning] = useState(false);
 
-const Page = () => {
-  const [prompt, setPrompt] = useState("");
-  const [image, setImage] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false); // Loading state
+  useEffect(() => {
+    let interval;
+    if (timerRunning) {
+      interval = setInterval(() => {
+        setSeconds((prev) => prev + 1);
+      }, 1000);
+    } else {
+      clearInterval(interval);
+    }
+    return () => clearInterval(interval);
+  }, [timerRunning]);
 
-  const handleGenerateImage = async () => {
-    setLoading(true); // Start loading
-    setImage(null); // Clear previous image
+  const handleGenerateMeme = async () => {
+    setError("");
+    setMemeUrl("");
+    setSeconds(0);
+    setTimerRunning(true);
+
+    if (!topic.trim()) {
+      setError("Please enter a meme topic.");
+      setTimerRunning(false);
+      return;
+    }
+
     try {
-      const response = await axios.post(
-        "https://fathomless-wave-32180-23c8bcd4cf72.herokuapp.com/generate_image",
+      const response = await fetch(
+        "https://fathomless-wave-32180-23c8bcd4cf72.herokuapp.com/generate_meme",
         {
-          inputs: prompt,
-          parameters: {
-            guidance_scale: 1.0,
-            num_inference_steps: 7,
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
           },
-        },
-        { responseType: "blob" }
+          body: JSON.stringify({ topic }),
+        }
       );
 
-      // Convert the binary data to a URL for the image
-      const imageUrl = URL.createObjectURL(new Blob([response.data]));
-      setImage(imageUrl); // Store the image URL
-    } catch (error) {
-      console.error("Error generating image:", error);
+      const data = await response.json();
+
+      if (response.ok) {
+        setMemeUrl(data.meme_url);
+      } else {
+        setError(data.error || "Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      setError("Failed to connect to the server.");
     } finally {
-      setLoading(false); // End loading
+      setTimerRunning(false);
     }
   };
 
   return (
-    <>
-      <Navbar />
-      <div className="bg-white p-8 rounded-lg shadow-lg text-center">
-        <h1 className="text-2xl font-bold mb-4">Generate an Image</h1>
-        <p className="text-gray-600 mb-6">
-          Enter a description to generate an image!
-        </p>
+    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
+      <h1 className="text-4xl font-bold mb-6 text-gray-800">Meme Agent</h1>
+      <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-md">
+        <label className="block text-gray-700 font-medium mb-2">
+          Meme topic:
+        </label>
         <input
           type="text"
-          placeholder="Type your prompt here"
-          className="input input-bordered w-full max-w-xs"
-          value={prompt}
-          onChange={(e) => setPrompt(e.target.value)}
+          className="w-full p-2 border rounded-lg mb-4"
+          placeholder="e.g., cats, programming, etc."
+          value={topic}
+          onChange={(e) => setTopic(e.target.value)}
         />
         <button
-          className={`btn btn-primary mt-4 ${loading ? "btn-disabled" : ""}`}
-          onClick={handleGenerateImage}
-          disabled={loading} // Disable button when loading
+          onClick={handleGenerateMeme}
+          className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 active:bg-blue-700 active:scale-95 transition"
         >
-          {loading ? "Generating..." : "Generate Image"}
+          Generate Meme
         </button>
-        {image && (
-          <div className="mt-6 flex flex-col items-center">
-            <h2 className="text-xl font-bold mb-4">Generated Image:</h2>
+
+        <div className="mt-4 text-gray-700 font-medium text-center">
+          {timerRunning && <p>Time elapsed: {seconds} seconds</p>}
+        </div>
+
+        {error && (
+          <div className="mt-4 text-red-500 text-center font-medium">
+            {error}
+          </div>
+        )}
+
+        {memeUrl && (
+          <div className="mt-6 text-center">
+            <p className="text-gray-700 font-medium mb-2">Your Meme:</p>
             <img
-              src={image}
-              alt="Generated"
-              className="w-1/4 max-w-full rounded-lg shadow-lg"
+              src={memeUrl}
+              alt="Generated Meme"
+              className="w-full h-auto rounded-lg border"
             />
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 };
 
-export default Page;
+export default MemeGenerator;
