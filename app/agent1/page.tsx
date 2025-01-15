@@ -10,15 +10,18 @@ const MemeGenerator = () => {
   const [timerRunning, setTimerRunning] = useState(false);
 
   useEffect(() => {
-    let interval: ReturnType<typeof setInterval>; // Explicitly type the interval
+    let interval: ReturnType<typeof setInterval> | null = null; // Initialize with null
     if (timerRunning) {
       interval = setInterval(() => {
         setSeconds((prev) => prev + 1);
       }, 1000);
-    } else {
-      clearInterval(interval);
     }
-    return () => clearInterval(interval); // Cleanup
+
+    return () => {
+      if (interval) {
+        clearInterval(interval); // Only clear if interval is set
+      }
+    };
   }, [timerRunning]);
 
   const handleGenerateMeme = async () => {
