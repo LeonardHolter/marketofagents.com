@@ -52,7 +52,7 @@ const MemeGenerator = () => {
       } else {
         setError(data.error || "Something went wrong. Please try again.");
       }
-    } catch (err) {
+    } catch {
       setError("Failed to connect to the server.");
     } finally {
       setTimerRunning(false);
