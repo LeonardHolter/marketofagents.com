@@ -3,35 +3,15 @@
 import Link from "next/link";
 export default function Navbar() {
   return (
-    <div className="navbar bg-base-100 border-b border-gray-200 shadow-sm ">
-      <div className="flex-1">
+    <div className="navbar bg-base-100 border-b border-gray-200 shadow-sm flex justify-center items-center">
+      <Link href="/">
         <img
           src="MOA_LOGO.png"
           className="object-contain"
           style={{ maxWidth: "7rem", maxHeight: "7rem" }}
           alt="MOA Logo"
         />
-      </div>
-      <div className="flex-none">
-        <ul className="menu menu-horizontal px-1">
-          <li>
-            <Link href="/reviews">Log In</Link>
-          </li>
-          <li>
-            <details>
-              <summary>Get Started</summary>
-              <ul className="bg-base-100 rounded-t-none p-2">
-                <li>
-                  <a>Credits</a>
-                </li>
-                <li>
-                  <a>Settings</a>
-                </li>
-              </ul>
-            </details>
-          </li>
-        </ul>
-      </div>
+      </Link>
     </div>
   );
 }
