@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Navbar from "../components/Navbar";
 
 const MemeGenerator = () => {
   const [topic, setTopic] = useState("");
@@ -63,48 +64,51 @@ const MemeGenerator = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
-      <h1 className="text-4xl font-bold mb-6 text-gray-800">Meme Agent</h1>
-      <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-md">
-        <label className="block text-gray-700 font-medium mb-2">
-          Meme topic:
-        </label>
-        <input
-          type="text"
-          className="w-full p-2 border rounded-lg mb-4"
-          placeholder="e.g., cats, programming, etc."
-          value={topic}
-          onChange={(e) => setTopic(e.target.value)}
-        />
-        <button
-          onClick={handleGenerateMeme}
-          className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 active:bg-blue-700 active:scale-95 transition"
-        >
-          Generate Meme
-        </button>
+    <>
+      <Navbar></Navbar>
+      <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
+        <h1 className="text-4xl font-bold mb-6 text-gray-800">Meme Agent</h1>
+        <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-md">
+          <label className="block text-gray-700 font-medium mb-2">
+            Meme topic:
+          </label>
+          <input
+            type="text"
+            className="w-full p-2 border rounded-lg mb-4"
+            placeholder="e.g., cats, programming, etc."
+            value={topic}
+            onChange={(e) => setTopic(e.target.value)}
+          />
+          <button
+            onClick={handleGenerateMeme}
+            className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 active:bg-blue-700 active:scale-95 transition"
+          >
+            Generate Meme
+          </button>
 
-        <div className="mt-4 text-gray-700 font-medium text-center">
-          {timerRunning && <p>Time elapsed: {seconds} seconds</p>}
+          <div className="mt-4 text-gray-700 font-medium text-center">
+            {timerRunning && <p>Time elapsed: {seconds} seconds</p>}
+          </div>
+
+          {error && (
+            <div className="mt-4 text-red-500 text-center font-medium">
+              {error}
+            </div>
+          )}
+
+          {memeUrl && (
+            <div className="mt-6 text-center">
+              <p className="text-gray-700 font-medium mb-2">Your Meme:</p>
+              <img
+                src={memeUrl}
+                alt="Generated Meme"
+                className="w-full h-auto rounded-lg border"
+              />
+            </div>
+          )}
         </div>
-
-        {error && (
-          <div className="mt-4 text-red-500 text-center font-medium">
-            {error}
-          </div>
-        )}
-
-        {memeUrl && (
-          <div className="mt-6 text-center">
-            <p className="text-gray-700 font-medium mb-2">Your Meme:</p>
-            <img
-              src={memeUrl}
-              alt="Generated Meme"
-              className="w-full h-auto rounded-lg border"
-            />
-          </div>
-        )}
       </div>
-    </div>
+    </>
   );
 };
 

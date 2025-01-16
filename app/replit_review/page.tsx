@@ -1,17 +1,12 @@
 "use static";
 import React from "react";
+import Navbar from "../components/Navbar";
 
 const Page = () => {
   return (
-    <div className="min-h-screen bg-gray-100 text-gray-800">
-      {/* Header */}
-      <header className="bg-white shadow">
-        <div className="container mx-auto px-4 py-4">
-          <h1 className="text-3xl font-bold text-center">Agent Reviews</h1>
-        </div>
-      </header>
+    <>
+      <Navbar></Navbar>
 
-      {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
         <div className="bg-white p-6 rounded-lg shadow-md">
           <h2 className="text-4xl font-semibold mb-6">Replit Agent Review</h2>
@@ -107,7 +102,7 @@ const Page = () => {
           <p>&copy; 2025 MOA. All rights reserved.</p>
         </div>
       </footer>
-    </div>
+    </>
   );
 };
 

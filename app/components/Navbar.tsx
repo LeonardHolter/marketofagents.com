@@ -5,7 +5,12 @@ export default function Navbar() {
   return (
     <div className="navbar bg-base-100 border-b border-gray-200 shadow-sm ">
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl">MarketOfAgents</a>
+        <img
+          src="MOA_LOGO.png"
+          className="object-contain"
+          style={{ maxWidth: "7rem", maxHeight: "7rem" }}
+          alt="MOA Logo"
+        />
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">
