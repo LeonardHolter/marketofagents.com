@@ -8,6 +8,9 @@ export default function AgentList() {
       <Link href="/memeAgent">
         <AgentCard imagepath="/meme.png">Meme Agent</AgentCard>
       </Link>
+      <Link href="/youtubeSummaryAgent">
+        <AgentCard imagepath="/youtube_agent.jpeg">YT Summary Agent</AgentCard>
+      </Link>
       <Link href="/replit_review">
         <AgentCard imagepath="/replit.png">Replit Agent</AgentCard>
       </Link>
