@@ -32,8 +32,7 @@ const SummarizePage = () => {
 
       const data = await response.json();
       setSummary(data.summary);
-    } catch (err: any) {
-      setError(err.message);
+    } catch {
     } finally {
       setLoading(false);
     }
