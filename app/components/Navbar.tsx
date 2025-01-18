@@ -13,9 +13,28 @@ export default function Navbar() {
           alt="MOA Logo"
         />
       </Link>
-      <div className="ml-auto">
+      <div className="ml-auto flex items-center space-x-4">
+        <Link
+          href="https://discord.gg/T8KPcdNBAh"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm font-medium text-blue-500 hover:underline"
+        >
+          <img
+            src="/discord-mark-blue.png"
+            alt="Join Discord"
+            className="w-7.5 h-6 mr-3"
+          />
+        </Link>
         <SignedOut>
-          <SignInButton mode="modal" />
+          <SignInButton mode="modal">
+            <button
+              className="btn"
+              style={{ backgroundColor: "rgb(250,51,51)", color: "white" }}
+            >
+              Sign in
+            </button>
+          </SignInButton>
         </SignedOut>
         <SignedIn>
           <UserButton />
