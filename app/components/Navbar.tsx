@@ -1,9 +1,10 @@
-"use static";
-
+"use client";
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
+
 export default function Navbar() {
   return (
-    <div className="navbar bg-base-100 border-b border-gray-200 shadow-sm flex justify-center items-center">
+    <div className="navbar bg-base-100 border-b border-gray-200 shadow-sm flex justify-between items-center px-4">
       <Link href="/">
         <img
           src="MOA_LOGO.png"
@@ -12,6 +13,14 @@ export default function Navbar() {
           alt="MOA Logo"
         />
       </Link>
+      <div className="ml-auto">
+        <SignedOut>
+          <SignInButton mode="modal" />
+        </SignedOut>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
+      </div>
     </div>
   );
 }

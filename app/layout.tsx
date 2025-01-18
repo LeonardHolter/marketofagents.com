@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import {
+  ClerkProvider,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from "@clerk/nextjs";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -44,36 +51,41 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="dark">
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-          name="keywords"
-          content="AI agents, marketplace, artificial intelligence, buy AI agents, sell AI tools"
-        />
-        <meta name="author" content="Market Of Agents Team" />
-        <meta name="theme-color" content="#000000" />
-        <meta property="og:title" content="Market Of Agents" />
-        <meta
-          property="og:description"
-          content="The Official Marketplace for AI Agents"
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://marketofagents.com" />
-        <meta property="og:image" content="/MOALogo.jpeg" />
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:title" content="Market Of Agents" />
-        <meta
-          property="twitter:description"
-          content="The Official Marketplace for AI Agents"
-        />
-        <meta property="twitter:image" content="/MOALogo.jpeg" />
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en" data-theme="dark">
+        <head>
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          />
+          <meta
+            name="keywords"
+            content="AI agents, marketplace, artificial intelligence, buy AI agents, sell AI tools"
+          />
+          <meta name="author" content="Market Of Agents Team" />
+          <meta name="theme-color" content="#000000" />
+          <meta property="og:title" content="Market Of Agents" />
+          <meta
+            property="og:description"
+            content="The Official Marketplace for AI Agents"
+          />
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://marketofagents.com" />
+          <meta property="og:image" content="/MOALogo.jpeg" />
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta property="twitter:title" content="Market Of Agents" />
+          <meta
+            property="twitter:description"
+            content="The Official Marketplace for AI Agents"
+          />
+          <meta property="twitter:image" content="/MOALogo.jpeg" />
+        </head>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
