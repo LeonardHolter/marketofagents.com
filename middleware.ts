@@ -1,10 +1,6 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
-const isProtectedRoute = createRouteMatcher([
-  "/youtubeSummaryAgent",
-  "/memeAgent",
-  "/replit_review",
-]);
+const isProtectedRoute = createRouteMatcher([]);
 
 export default clerkMiddleware(async (auth, req) => {
   if (isProtectedRoute(req)) await auth.protect();
