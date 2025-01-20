@@ -5,7 +5,6 @@ import React, { useState, useEffect } from "react";
 
 export default function AgentList() {
   const [memeGeneratorClicks, setMemeGeneratorClicks] = useState(0);
-  const [memeYoutube_SummaryClicks, setMemeYoutube_SummaryClicks] = useState(0);
 
   // Fetch current click count when the component mounts
   useEffect(() => {
