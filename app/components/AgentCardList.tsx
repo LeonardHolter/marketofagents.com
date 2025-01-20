@@ -52,14 +52,6 @@ export default function AgentList() {
           Meme Agent
         </AgentCard>
       </Link>
-      <Link href="/youtubeSummaryAgent">
-        <AgentCard
-          imagepath="/youtube_agent.jpeg"
-          counter={memeYoutube_SummaryClicks}
-        >
-          YT Summary Agent
-        </AgentCard>
-      </Link>
     </div>
   );
 }
