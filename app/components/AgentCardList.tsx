@@ -11,25 +11,6 @@ export default function AgentList() {
     const fetchClicks = async () => {
       try {
         const response = await fetch(
-          "https://agentcounter-ad5dd4251109.herokuapp.com/get_counter/summarize_youtube"
-        );
-        const data = await response.json();
-        if (response.ok) {
-          setMemeYoutube_SummaryClicks(data.counter || 0); // Set the initial counter value
-        }
-      } catch (err) {
-        console.error("Failed to fetch click count:", err);
-      }
-    };
-
-    fetchClicks();
-  }, []);
-
-  // Fetch current click count when the component mounts
-  useEffect(() => {
-    const fetchClicks = async () => {
-      try {
-        const response = await fetch(
           "https://agentcounter-ad5dd4251109.herokuapp.com/get_counter/memeGenerator"
         );
         const data = await response.json();
