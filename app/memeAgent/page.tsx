@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
+import { useUser, useClerk } from "@clerk/nextjs";
 
 const MemeGenerator = () => {
   const [topic, setTopic] = useState("");
@@ -9,7 +10,11 @@ const MemeGenerator = () => {
   const [error, setError] = useState("");
   const [seconds, setSeconds] = useState(0);
   const [timerRunning, setTimerRunning] = useState(false);
-  const [clicks, setClicks] = useState(0); // State to track total clicks
+  const [clicks, setClicks] = useState(0);
+  const [hasUsedGenerator, setHasUsedGenerator] = useState(false);
+
+  const { user, isSignedIn } = useUser();
+  const clerk = useClerk();
 
   useEffect(() => {
     let interval = null;
@@ -26,7 +31,6 @@ const MemeGenerator = () => {
     };
   }, [timerRunning]);
 
-  // Fetch current click count when the component mounts
   useEffect(() => {
     const fetchClicks = async () => {
       try {
@@ -35,7 +39,7 @@ const MemeGenerator = () => {
         );
         const data = await response.json();
         if (response.ok) {
-          setClicks(data.counter || 0); // Set the initial counter value
+          setClicks(data.counter || 0);
         }
       } catch (err) {
         console.error("Failed to fetch click count:", err);
@@ -46,6 +50,12 @@ const MemeGenerator = () => {
   }, []);
 
   const handleGenerateMeme = async () => {
+    // Check if user has used generator before and is not signed in
+    if (hasUsedGenerator && !isSignedIn) {
+      clerk.openSignIn();
+      return;
+    }
+
     setError("");
     setMemeUrl("");
     setSeconds(0);
@@ -74,7 +84,10 @@ const MemeGenerator = () => {
       if (response.ok) {
         setMemeUrl(data.meme_url);
 
-        // Increment the counter for memeGenerator
+        // Mark that the user has used the generator in this session
+        setHasUsedGenerator(true);
+
+        // Increment counter
         const incrementResponse = await fetch(
           "https://agentcounter-ad5dd4251109.herokuapp.com/increment_counter/memeGenerator",
           {
@@ -84,7 +97,7 @@ const MemeGenerator = () => {
 
         const incrementData = await incrementResponse.json();
         if (incrementResponse.ok) {
-          setClicks(incrementData.counter); // Update the click count
+          setClicks(incrementData.counter);
         }
       } else {
         setError(data.error || "Something went wrong. Please try again.");
@@ -141,6 +154,14 @@ const MemeGenerator = () => {
                 alt="Generated Meme"
                 className="w-full h-auto rounded-lg border"
               />
+            </div>
+          )}
+
+          {hasUsedGenerator && !isSignedIn && (
+            <div className="mt-4 text-center">
+              <p className="text-gray-700 mb-2">
+                Please sign in to continue generating memes!
+              </p>
             </div>
           )}
         </div>
