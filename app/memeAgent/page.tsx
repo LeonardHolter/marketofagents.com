@@ -13,7 +13,7 @@ const MemeGenerator = () => {
   const [clicks, setClicks] = useState(0);
   const [hasUsedGenerator, setHasUsedGenerator] = useState(false);
 
-  const { user: _user, isSignedIn } = useUser();
+  const { isSignedIn } = useUser();
   const clerk = useClerk();
 
   useEffect(() => {
