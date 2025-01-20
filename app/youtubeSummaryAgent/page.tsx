@@ -75,8 +75,8 @@ const SummarizePage = () => {
 
       const data = await response.json();
       setSummary(data.summary);
-    } catch (err: any) {
-      setError(err.message || "An error occurred.");
+    } catch {
+      setError("An error occurred.");
     } finally {
       setLoading(false);
     }
