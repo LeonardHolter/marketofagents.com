@@ -4,9 +4,14 @@ import { ReactNode } from "react";
 interface AgentCardProps {
   children: ReactNode;
   imagepath?: string; // Add the imagepath property as optional
+  counter: number;
 }
 
-export default function AgentCard({ children, imagepath }: AgentCardProps) {
+export default function AgentCard({
+  children,
+  imagepath,
+  counter,
+}: AgentCardProps) {
   return (
     <div className="card bg-base-100 w-64 shadow-xl hover:shadow-2xl hover:scale-105 transition-transform duration-300 ease-in-out">
       <figure>
@@ -26,8 +31,7 @@ export default function AgentCard({ children, imagepath }: AgentCardProps) {
         </h2>
         <p>Makes your life 100% easier</p>
         <div className="card-actions justify-end">
-          <div className="badge badge-outline">CRM</div>
-          <div className="badge badge-outline">Marketing</div>
+          <div className="badge badge-outline">Used {counter} times! </div>
         </div>
       </div>
     </div>

@@ -9,9 +9,10 @@ const MemeGenerator = () => {
   const [error, setError] = useState("");
   const [seconds, setSeconds] = useState(0);
   const [timerRunning, setTimerRunning] = useState(false);
+  const [clicks, setClicks] = useState(0); // State to track total clicks
 
   useEffect(() => {
-    let interval: ReturnType<typeof setInterval> | null = null; // Initialize with null
+    let interval = null;
     if (timerRunning) {
       interval = setInterval(() => {
         setSeconds((prev) => prev + 1);
@@ -20,10 +21,29 @@ const MemeGenerator = () => {
 
     return () => {
       if (interval) {
-        clearInterval(interval); // Only clear if interval is set
+        clearInterval(interval);
       }
     };
   }, [timerRunning]);
+
+  // Fetch current click count when the component mounts
+  useEffect(() => {
+    const fetchClicks = async () => {
+      try {
+        const response = await fetch(
+          "https://agentcounter-ad5dd4251109.herokuapp.com/get_counter/memeGenerator"
+        );
+        const data = await response.json();
+        if (response.ok) {
+          setClicks(data.counter || 0); // Set the initial counter value
+        }
+      } catch (err) {
+        console.error("Failed to fetch click count:", err);
+      }
+    };
+
+    fetchClicks();
+  }, []);
 
   const handleGenerateMeme = async () => {
     setError("");
@@ -53,6 +73,19 @@ const MemeGenerator = () => {
 
       if (response.ok) {
         setMemeUrl(data.meme_url);
+
+        // Increment the counter for memeGenerator
+        const incrementResponse = await fetch(
+          "https://agentcounter-ad5dd4251109.herokuapp.com/increment_counter/memeGenerator",
+          {
+            method: "POST",
+          }
+        );
+
+        const incrementData = await incrementResponse.json();
+        if (incrementResponse.ok) {
+          setClicks(incrementData.counter); // Update the click count
+        }
       } else {
         setError(data.error || "Something went wrong. Please try again.");
       }
@@ -65,7 +98,7 @@ const MemeGenerator = () => {
 
   return (
     <>
-      <Navbar></Navbar>
+      <Navbar />
       <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
         <h1 className="text-4xl font-bold mb-6 text-gray-800">Meme Agent</h1>
         <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-md">
@@ -88,6 +121,10 @@ const MemeGenerator = () => {
 
           <div className="mt-4 text-gray-700 font-medium text-center">
             {timerRunning && <p>Time elapsed: {seconds} seconds</p>}
+          </div>
+
+          <div className="mt-4 text-gray-800 font-medium text-center">
+            Total memes generated: <span className="font-bold">{clicks}</span>
           </div>
 
           {error && (

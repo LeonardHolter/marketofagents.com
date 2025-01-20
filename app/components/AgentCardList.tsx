@@ -1,18 +1,64 @@
-"use static";
+"use client";
 import AgentCard from "./AgentCard";
 import Link from "next/link";
+import React, { useState, useEffect } from "react";
 
 export default function AgentList() {
+  const [memeGeneratorClicks, setMemeGeneratorClicks] = useState(0);
+  const [memeYoutube_SummaryClicks, setMemeYoutube_SummaryClicks] = useState(0);
+
+  // Fetch current click count when the component mounts
+  useEffect(() => {
+    const fetchClicks = async () => {
+      try {
+        const response = await fetch(
+          "https://agentcounter-ad5dd4251109.herokuapp.com/get_counter/summarize_youtube"
+        );
+        const data = await response.json();
+        if (response.ok) {
+          setMemeYoutube_SummaryClicks(data.counter || 0); // Set the initial counter value
+        }
+      } catch (err) {
+        console.error("Failed to fetch click count:", err);
+      }
+    };
+
+    fetchClicks();
+  }, []);
+
+  // Fetch current click count when the component mounts
+  useEffect(() => {
+    const fetchClicks = async () => {
+      try {
+        const response = await fetch(
+          "https://agentcounter-ad5dd4251109.herokuapp.com/get_counter/memeGenerator"
+        );
+        const data = await response.json();
+        if (response.ok) {
+          setMemeGeneratorClicks(data.counter || 0); // Set the initial counter value
+        }
+      } catch (err) {
+        console.error("Failed to fetch click count:", err);
+      }
+    };
+
+    fetchClicks();
+  }, []);
+
   return (
     <div className="flex flex-col sm:flex-wrap sm:flex-row justify-center items-center gap-12 mt-20">
       <Link href="/memeAgent">
-        <AgentCard imagepath="/meme.png">Meme Agent</AgentCard>
+        <AgentCard imagepath="/meme.png" counter={memeGeneratorClicks}>
+          Meme Agent
+        </AgentCard>
       </Link>
       <Link href="/youtubeSummaryAgent">
-        <AgentCard imagepath="/youtube_agent.jpeg">YT Summary Agent</AgentCard>
-      </Link>
-      <Link href="/replit_review">
-        <AgentCard imagepath="/replit.png">Replit Agent</AgentCard>
+        <AgentCard
+          imagepath="/youtube_agent.jpeg"
+          counter={memeYoutube_SummaryClicks}
+        >
+          YT Summary Agent
+        </AgentCard>
       </Link>
     </div>
   );
