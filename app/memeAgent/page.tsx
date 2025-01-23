@@ -113,7 +113,7 @@ const MemeGenerator = () => {
     <>
       <Navbar />
       <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
-        <h1 className="text-4xl font-bold text-gray-800 mb-5">Meme Agent</h1>
+        <h1 className="text-4xl font-bold text-gray-800 mb-7">Meme Agent</h1>
         <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-md">
           <label className="block text-gray-700 font-medium mb-2">
             Meme topic:
