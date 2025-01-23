@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useUser, useClerk } from "@clerk/nextjs";
-import NavBar from "../components/Navbar";
+import Navbar from "../components/Navbar";
 
 const MemeGenerator = () => {
   const [topic, setTopic] = useState("");
@@ -111,7 +111,7 @@ const MemeGenerator = () => {
 
   return (
     <>
-      <NavBar />
+      <Navbar />
       <div className="min-h-screen bg-gray-100 flex flex-col items-center p-4">
         <div className="justify-top">
           <h1 className="text-4xl font-bold text-gray-800 mb-10 justify-center">
