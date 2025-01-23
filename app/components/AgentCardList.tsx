@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 
 export default function AgentList() {
   const [memeGeneratorClicks, setMemeGeneratorClicks] = useState(0);
+  const [error, setError] = useState(false);
 
   // Fetch current click count when the component mounts
   useEffect(() => {
@@ -16,9 +17,13 @@ export default function AgentList() {
         const data = await response.json();
         if (response.ok) {
           setMemeGeneratorClicks(data.counter || 0); // Set the initial counter value
+        } else {
+          console.error("Error fetching data:", data.message);
+          setError(true);
         }
       } catch (err) {
         console.error("Failed to fetch click count:", err);
+        setError(true);
       }
     };
 
@@ -31,7 +36,13 @@ export default function AgentList() {
         <AgentCard imagepath="/meme.png" counter={memeGeneratorClicks}>
           Meme Agent
         </AgentCard>
+        
       </Link>
+      {error && (
+        <div className="text-red-500 text-sm mt-4">
+          Failed to load click count. Please try again later.
+        </div>
+      )}
     </div>
   );
 }

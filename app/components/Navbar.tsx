@@ -15,6 +15,18 @@ export default function NavBar() {
       </Link>
       <div className="ml-auto flex items-center space-x-4">
         <Link
+          href="/about-us"
+          className="text-sm font-medium text-blue-500 hover:underline"
+        >
+          About Us
+        </Link>
+        <Link
+          href="/team"
+          className="text-sm font-medium text-blue-500 hover:underline"
+        >
+          Team
+        </Link>
+        <Link
           href="https://discord.gg/T8KPcdNBAh"
           target="_blank"
           rel="noopener noreferrer"
