@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Navbar from "../components/Navbar";
 import { useUser, useClerk } from "@clerk/nextjs";
+import NavBar from "../components/NavBar";
 
 const MemeGenerator = () => {
   const [topic, setTopic] = useState("");
@@ -111,7 +111,7 @@ const MemeGenerator = () => {
 
   return (
     <>
-      <Navbar />
+      <NavBar />
       <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
         <h1 className="text-4xl font-bold text-gray-800 mb-10">Meme Agent</h1>
         <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-md">

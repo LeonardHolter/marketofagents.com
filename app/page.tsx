@@ -1,10 +1,10 @@
-import Navbar from "./components/Navbar";
 import AgentCardList from "./components/AgentCardList";
+import NavBar from "./components/NavBar";
 
 export default function Home() {
   return (
     <div>
-      <Navbar></Navbar>
+      <NavBar></NavBar>
       <AgentCardList></AgentCardList>
     </div>
   );
