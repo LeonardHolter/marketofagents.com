@@ -12,8 +12,8 @@ export default function AboutUs() {
         <p className="text-lg text-gray-600 text-center max-w-2xl">
           Welcome to Market Of Agents (MOA), the official marketplace for AI
           agents. Our mission is to connect businesses and individuals with
-          powerful AI tools to make their lives easier. Whether you're looking
-          for automation solutions or specialized AI agents, we've got you
+          powerful AI tools to make their lives easier. Whether you&apos;re looking
+          for automation solutions or specialized AI agents, we&apos;ve got you
           covered.
         </p>
         <p className="text-lg text-gray-600 text-center max-w-2xl mt-4">
