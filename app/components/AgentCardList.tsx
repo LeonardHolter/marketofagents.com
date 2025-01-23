@@ -27,7 +27,7 @@ export default function AgentList() {
 
   return (
     <div className="flex flex-col sm:flex-wrap sm:flex-row justify-center items-center gap-12 mt-20">
-      <Link href="/MemeAgent">
+      <Link href="/memeAgent">
         <AgentCard imagepath="/meme.png" counter={memeGeneratorClicks}>
           Meme Agent
         </AgentCard>
