@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useUser, useClerk } from "@clerk/nextjs";
-import NavBar from "../components/NavBar";
+import NavBar from "../components/Navbar";
 
 const MemeGenerator = () => {
   const [topic, setTopic] = useState("");
