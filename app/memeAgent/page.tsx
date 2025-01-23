@@ -15,7 +15,7 @@ const MemeGenerator = () => {
 
   const { isSignedIn } = useUser();
   const clerk = useClerk();
-
+  //test
   useEffect(() => {
     let interval = null;
     if (timerRunning) {
