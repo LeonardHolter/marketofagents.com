@@ -1,4 +1,4 @@
-"use client";
+"use static";
 
 import Link from "next/link";
 
