@@ -6,6 +6,20 @@ export default function Footer() {
   return (
     <footer className="bg-white py-6 border-t mt-8">
       <div className="container mx-auto text-center text-sm text-gray-600">
+        {/* New row for Discord icon */}
+        <p className="mb-4">
+          <a
+            href="https://discord.gg/T8KPcdNBAh"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="/discord-mark-blue.png"
+              alt="Join Our Discord!"
+              className="w-6 h-6 inline"
+            />
+          </a>
+        </p>
         <p>
           Built by{" "}
           <a

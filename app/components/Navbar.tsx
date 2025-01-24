@@ -38,20 +38,6 @@ export default function Navbar() {
         {/* Menu Items */}
         <input type="checkbox" id="menu-toggle" className="hidden peer" />
         <div className="peer-checked:flex hidden flex-col md:flex md:flex-row md:items-center w-full md:w-auto space-y-4 md:space-y-0 md:space-x-4 mt-4 md:mt-0">
-          {/* Discord Icon */}
-          <Link
-            href="https://discord.gg/T8KPcdNBAh"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center"
-          >
-            <img
-              src="/discord-mark-blue.png"
-              alt="Join Discord"
-              className="w-7 h-7"
-            />
-          </Link>
-
           {/* About Us Button */}
           <Link
             href="/about-us"
