@@ -1,4 +1,4 @@
-"use static";
+"use client";
 
 import React from "react";
 import NavBar from "../components/Navbar";
@@ -7,22 +7,57 @@ export default function AboutUs() {
   return (
     <>
       <NavBar />
-      <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-6">
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">About Us</h1>
-        <p className="text-lg text-gray-600 text-center max-w-2xl">
-          Welcome to Market Of Agents (MOA), the official marketplace for AI
-          agents. Our mission is to connect businesses and individuals with
-          powerful AI tools to make their lives easier. Whether you&apos;re looking
-          for automation solutions or specialized AI agents, we&apos;ve got you
-          covered.
-        </p>
-        <p className="text-lg text-gray-600 text-center max-w-2xl mt-4">
-          Our platform is built to bring the best AI technologies to your
-          fingertips. We are committed to innovation, collaboration, and
-          helping you achieve your goals in a world driven by artificial
-          intelligence.
-        </p>
-      </div>
+      <main className="bg-white min-h-screen">
+        <div className="container mx-auto px-6 py-12">
+          {/* Title Section */}
+          <div className="text-center mb-8">
+            <h1 className="text-5xl font-bold text-gray-800">
+              Need an agent?{" "}
+              <span className="italic text-red-600">We have it!</span>
+            </h1>
+          </div>
+
+          {/* Content Section */}
+          <div className="flex flex-col md:flex-row items-center">
+            {/* Image Section */}
+            <div className="flex-shrink-0 mb-6 md:mb-0 md:mr-8">
+              <img
+                src="/poster.png"
+                alt="Market of Agents Poster"
+                className="w-[500px] h-auto mx-auto md:mx-0"
+              />
+            </div>
+
+            {/* Text Section */}
+            <div className="text-center md:text-left">
+              <p className="text-lg text-gray-600 leading-relaxed mb-6">
+                Welcome to <span className="font-semibold">marketofagents</span>
+                ! We are proud to offer a one-stop marketplace where you can
+                find all kinds of AI agents tailored to your needs. Whether
+                you’re looking for{" "}
+                <span className="font-semibold">meme creators</span>,
+                <span className="font-semibold">coding assistants</span>, or
+                even
+                <span className="font-semibold">restaurant guides</span>, we
+                have it all. Our platform is designed to make your life easier
+                by providing smart, efficient tools that save you time and
+                effort.
+              </p>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                From helping you craft the perfect meme to assisting with
+                advanced technical tasks,{" "}
+                <span className="font-semibold">marketofagents</span>
+                is your go-to resource for innovative solutions. Explore our
+                diverse range of agents and see how they can transform the way
+                you work, create, and explore. At{" "}
+                <span className="font-semibold">marketofagents</span>, we’re
+                dedicated to democratizing AI and making it accessible to
+                everyone.
+              </p>
+            </div>
+          </div>
+        </div>
+      </main>
     </>
   );
 }
