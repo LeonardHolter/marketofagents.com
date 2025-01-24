@@ -5,8 +5,6 @@ import Category from "./Category";
 export interface CategoryObj {
   name: string;
   agent1: object;
-  agent2: object;
-  agent3: object;
 }
 
 export interface AgentObj {
@@ -19,20 +17,14 @@ export default function AgentList() {
     {
       name: "Most Popular",
       agent1: { fileName: "memeAgent", displayName: "Meme Agent" },
-      agent2: { fileName: "memeAgent", displayName: "Meme Agent" },
-      agent3: { fileName: "memeAgent", displayName: "Meme Agent" },
     },
     {
       name: "Entertainment",
       agent1: { fileName: "memeAgent", displayName: "Meme Agent" },
-      agent2: { fileName: "memeAgent", displayName: "Meme Agent" },
-      agent3: { fileName: "memeAgent", displayName: "Meme Agent" },
     },
     {
       name: "Utility",
       agent1: { fileName: "memeAgent", displayName: "Meme Agent" },
-      agent2: { fileName: "memeAgent", displayName: "Meme Agent" },
-      agent3: { fileName: "memeAgent", displayName: "Meme Agent" },
     },
   ];
 

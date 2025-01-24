@@ -86,31 +86,29 @@ export default function Category({ categoryObj }: CategoryProps) {
       </div>
       */}
       <div className="flex flex-row space-x-10 justify-center mt-5">
-        {[categoryObj.agent1, categoryObj.agent2, categoryObj.agent3].map(
-          (agent, index) => {
-            const typedAgent = agent as AgentObj; // Explicitly cast the type
-            return (
-              <div
-                key={index}
-                className="flex flex-col sm:flex-wrap sm:flex-row justify-center items-center gap-12"
-              >
-                <Link href={`/${typedAgent.fileName}`}>
-                  <AgentCard
-                    imagepath={`/${typedAgent.fileName}.png`}
-                    counter={memeGeneratorClicks}
-                  >
-                    {typedAgent.displayName}
-                  </AgentCard>
-                </Link>
-                {error && (
-                  <div className="text-red-500 text-sm mt-4">
-                    Failed to load click count. Please try again later.
-                  </div>
-                )}
-              </div>
-            );
-          }
-        )}
+        {[categoryObj.agent1].map((agent, index) => {
+          const typedAgent = agent as AgentObj; // Explicitly cast the type
+          return (
+            <div
+              key={index}
+              className="flex flex-col sm:flex-wrap sm:flex-row justify-center items-center gap-12"
+            >
+              <Link href={`/${typedAgent.fileName}`}>
+                <AgentCard
+                  imagepath={`/${typedAgent.fileName}.png`}
+                  counter={memeGeneratorClicks}
+                >
+                  {typedAgent.displayName}
+                </AgentCard>
+              </Link>
+              {error && (
+                <div className="text-red-500 text-sm mt-4">
+                  Failed to load click count. Please try again later.
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
     </>
   );
