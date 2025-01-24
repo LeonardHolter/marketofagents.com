@@ -2,6 +2,7 @@
 
 import React from "react";
 import NavBar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export default function AboutUs() {
   return (
@@ -58,6 +59,7 @@ export default function AboutUs() {
           </div>
         </div>
       </main>
+      <Footer />
     </>
   );
 }
