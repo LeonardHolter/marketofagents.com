@@ -13,13 +13,8 @@ export default function Navbar() {
           alt="MOA Logo"
         />
       </Link>
+
       <div className="ml-auto flex items-center space-x-4">
-        <Link
-          href="/about-us"
-          className="focus:outline-none text-white font-bold bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
-        >
-          About Us
-        </Link>
         <Link
           href="https://discord.gg/T8KPcdNBAh"
           target="_blank"
@@ -32,6 +27,14 @@ export default function Navbar() {
             className="w-7.5 h-6 mr-3"
           />
         </Link>
+        <Link
+          href="/about-us"
+          className="btn"
+          style={{ backgroundColor: "rgb(250,51,51)", color: "white" }}
+        >
+          About Us
+        </Link>
+
         <SignedOut>
           <SignInButton mode="modal">
             <button

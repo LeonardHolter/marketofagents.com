@@ -4,30 +4,35 @@ import Category from "./Category";
 
 export interface CategoryObj {
   name: string;
-  agent1: string;
-  agent2: string;
-  agent3: string;
+  agent1: object;
+  agent2: object;
+  agent3: object;
+}
+
+export interface AgentObj {
+  fileName: string;
+  displayName: string;
 }
 
 export default function AgentList() {
   const categoryData: CategoryObj[] = [
     {
       name: "Most Popular",
-      agent1: "memeAgent",
-      agent2: "codingAgent",
-      agent3: "emailAgent",
+      agent1: { fileName: "memeAgent", displayName: "Meme Agent" },
+      agent2: { fileName: "memeAgent", displayName: "Meme Agent" },
+      agent3: { fileName: "memeAgent", displayName: "Meme Agent" },
     },
     {
       name: "Entertainment",
-      agent1: "memeAgent",
-      agent2: "emailAgent",
-      agent3: "memeAgent",
+      agent1: { fileName: "memeAgent", displayName: "Meme Agent" },
+      agent2: { fileName: "memeAgent", displayName: "Meme Agent" },
+      agent3: { fileName: "memeAgent", displayName: "Meme Agent" },
     },
     {
       name: "Utility",
-      agent1: "emailAgent",
-      agent2: "Replit",
-      agent3: "Devin",
+      agent1: { fileName: "memeAgent", displayName: "Meme Agent" },
+      agent2: { fileName: "memeAgent", displayName: "Meme Agent" },
+      agent3: { fileName: "memeAgent", displayName: "Meme Agent" },
     },
   ];
 
