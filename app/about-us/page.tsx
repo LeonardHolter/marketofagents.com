@@ -36,21 +36,20 @@ export default function AboutUs() {
                 ! We are proud to offer a one-stop marketplace where you can
                 find all kinds of AI agents tailored to your needs. Whether
                 you’re looking for{" "}
-                <span className="font-semibold">meme creators</span>,
+                <span className="font-semibold">meme creators</span>,{" "}
                 <span className="font-semibold">coding assistants</span>, or
-                even
-                <span className="font-semibold">restaurant guides</span>, we
-                have it all. Our platform is designed to make your life easier
-                by providing smart, efficient tools that save you time and
-                effort.
+                even <span className="font-semibold">restaurant guides</span>,
+                we have it all. Our platform is designed to make your life
+                easier by providing smart, efficient tools that save you time
+                and effort.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
                 From helping you craft the perfect meme to assisting with
                 advanced technical tasks,{" "}
-                <span className="font-semibold">marketofagents</span>
-                is your go-to resource for innovative solutions. Explore our
-                diverse range of agents and see how they can transform the way
-                you work, create, and explore. At{" "}
+                <span className="font-semibold">marketofagents</span> is your
+                go-to resource for innovative solutions. Explore our diverse
+                range of agents and see how they can transform the way you work,
+                create, and explore. At{" "}
                 <span className="font-semibold">marketofagents</span>, we’re
                 dedicated to democratizing AI and making it accessible to
                 everyone.
