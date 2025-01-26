@@ -73,7 +73,7 @@ export default function DiningAgent() {
           <textarea
             value={goal}
             onChange={(e) => setGoal(e.target.value)}
-            placeholder="Enter your nutrition goal (e.g., build muscle, eat healthy, vegetarian options)"
+            placeholder="Enter your nutrition goal (e.g., build muscle, bulk, cut, eat healthy, vegetarian options)"
             className="w-full p-3 border rounded-lg resize-none h-32"
             required
           />
