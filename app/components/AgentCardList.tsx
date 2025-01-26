@@ -16,7 +16,7 @@ export default function AgentList() {
   const categoryData: CategoryObj[] = [
     {
       name: "Most Popular",
-      agent1: { fileName: "memeAgent", displayName: "Meme Agent" },
+      agent1: { fileName: "diningAgent", displayName: "Dining Agent" },
     },
     {
       name: "Entertainment",
