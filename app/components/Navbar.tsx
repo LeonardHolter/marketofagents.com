@@ -39,13 +39,15 @@ export default function Navbar() {
         <input type="checkbox" id="menu-toggle" className="hidden peer" />
         <div className="peer-checked:flex hidden flex-col md:flex md:flex-row md:items-center w-full md:w-auto space-y-4 md:space-y-0 md:space-x-4 mt-4 md:mt-0">
           {/* About Us Button */}
-          <Link
-            href="/about-us"
-            className="btn"
-            style={{ backgroundColor: "rgb(250,51,51)", color: "white" }}
-          >
-            About Us
-          </Link>
+          {/*
+            <Link
+              href="/about-us"
+              className="btn"
+              style={{ backgroundColor: "rgb(250,51,51)", color: "white" }}
+            >
+              About Us
+            </Link>
+          */}
 
           {/* Authentication Buttons */}
           <SignedOut>
