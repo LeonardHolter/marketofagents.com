@@ -3,15 +3,16 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Analytics } from "@vercel/analytics/react";
+import { JetBrains_Mono } from "next/font/google";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -48,7 +49,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <Analytics />
-      <html lang="en" data-theme="dark">
+      <html lang="en" data-theme="dark" className={jetBrainsMono.className}>
         <head>
           <meta
             name="viewport"
@@ -77,7 +78,7 @@ export default function RootLayout({
           <meta property="twitter:image" content="/MOALogo.jpeg" />
         </head>
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          className={`${geistSans.variable} ${jetBrainsMono.variable} antialiased`}
         >
           {children}
         </body>
