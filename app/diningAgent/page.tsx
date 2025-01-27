@@ -55,19 +55,38 @@ export default function DiningAgent() {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
           },
           body: JSON.stringify({ message: goal }),
         }
       );
 
       if (!response.ok) {
-        throw new Error("Failed to get recommendation");
+        throw new Error(`Failed to get recommendation: ${response.statusText}`);
       }
 
-      const data = await response.json();
-      setRecommendation(typeof data === "string" ? JSON.parse(data) : data);
-      setHasUsedOnce(true); // Set the flag after first successful use
+      const rawData = await response.json();
+      console.log("Raw response:", rawData); // Debug log
+
+      // Parse the data if it's a string
+      let data;
+      try {
+        data = typeof rawData === "string" ? JSON.parse(rawData) : rawData;
+      } catch (parseError) {
+        console.error("JSON Parse Error:", parseError);
+        throw new Error("Invalid response format");
+      }
+
+      // Validate the data structure
+      if (!data?.primary_recommendation?.dining_hall) {
+        console.error("Invalid data structure:", data);
+        throw new Error("Invalid recommendation format");
+      }
+
+      setRecommendation(data);
+      setHasUsedOnce(true);
     } catch (err) {
+      console.error("Error details:", err); // Debug log
       setError(err instanceof Error ? err.message : "An error occurred");
     } finally {
       setLoading(false);
@@ -147,47 +166,49 @@ export default function DiningAgent() {
               </CardContent>
             </Card>
 
-            {/* Secondary Recommendation */}
-            <Card className="bg-white shadow-lg">
-              <CardContent className="p-6">
-                <div className="mb-2 text-sm font-medium text-gray-600">
-                  Alternative Option
-                </div>
-                <h2 className="text-2xl font-semibold mb-4">
-                  {recommendation.secondary_recommendation.dining_hall}
-                </h2>
-                <p className="text-gray-600 mb-6">
-                  {recommendation.secondary_recommendation.reason}
-                </p>
+            {/* Secondary Recommendation - Only show if it exists */}
+            {recommendation.secondary_recommendation && (
+              <Card className="bg-white shadow-lg">
+                <CardContent className="p-6">
+                  <div className="mb-2 text-sm font-medium text-gray-600">
+                    Alternative Option
+                  </div>
+                  <h2 className="text-2xl font-semibold mb-4">
+                    {recommendation.secondary_recommendation.dining_hall}
+                  </h2>
+                  <p className="text-gray-600 mb-6">
+                    {recommendation.secondary_recommendation.reason}
+                  </p>
 
-                <h3 className="text-xl font-semibold mb-4">
-                  Top Recommended Dishes:
-                </h3>
-                <div className="space-y-4">
-                  {recommendation.secondary_recommendation.top_dishes.map(
-                    (dish, index) => (
-                      <div key={index} className="border-b pb-4">
-                        <h4 className="font-medium">{dish.dish}</h4>
-                        <p className="text-sm text-gray-600">
-                          Calories: {dish.estimated_calories}
-                        </p>
-                        <p className="text-sm text-gray-600">
-                          Benefits: {dish.nutritional_benefits}
-                        </p>
-                        <div className="flex items-center mt-2">
-                          <span className="text-sm text-gray-600">
-                            Rating:{" "}
-                          </span>
-                          <span className="ml-2 font-medium">
-                            {dish.rating}/10
-                          </span>
+                  <h3 className="text-xl font-semibold mb-4">
+                    Top Recommended Dishes:
+                  </h3>
+                  <div className="space-y-4">
+                    {recommendation.secondary_recommendation.top_dishes.map(
+                      (dish, index) => (
+                        <div key={index} className="border-b pb-4">
+                          <h4 className="font-medium">{dish.dish}</h4>
+                          <p className="text-sm text-gray-600">
+                            Calories: {dish.estimated_calories}
+                          </p>
+                          <p className="text-sm text-gray-600">
+                            Benefits: {dish.nutritional_benefits}
+                          </p>
+                          <div className="flex items-center mt-2">
+                            <span className="text-sm text-gray-600">
+                              Rating:{" "}
+                            </span>
+                            <span className="ml-2 font-medium">
+                              {dish.rating}/10
+                            </span>
+                          </div>
                         </div>
-                      </div>
-                    )
-                  )}
-                </div>
-              </CardContent>
-            </Card>
+                      )
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+            )}
           </div>
         )}
       </div>
