@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { useSignIn } from "@clerk/nextjs";
 import { useClerk } from "@clerk/nextjs";
 import Navbar from "../components/Navbar";
 
