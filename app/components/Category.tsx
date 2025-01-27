@@ -4,7 +4,7 @@ import AgentCard from "./AgentCard";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
-import { CategoryObj, AgentObj } from "./AgentCardList";
+import { CategoryObj } from "./AgentCardList";
 
 interface CategoryProps {
   categoryObj: CategoryObj;
