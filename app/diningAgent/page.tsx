@@ -35,7 +35,6 @@ export default function DiningAgent() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [hasUsedOnce, setHasUsedOnce] = useState(false);
-  const { isLoaded, signIn } = useSignIn();
 
   const clerk = useClerk();
 
