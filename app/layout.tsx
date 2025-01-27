@@ -47,6 +47,7 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
+      <Analytics />
       <html lang="en" data-theme="dark">
         <head>
           <meta
