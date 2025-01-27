@@ -17,7 +17,7 @@ export default function AgentList() {
     {
       name: "Most Popular",
       agents: [
-        { fileName: "professorAgent", displayName: "Professor Agent" },
+        { fileName: "diningAgent", displayName: "Dining Agent" },
         { fileName: "prospectAgent", displayName: "Prospect Agent" },
         { fileName: "domainAgent", displayName: "Domain Agent" },
       ],
