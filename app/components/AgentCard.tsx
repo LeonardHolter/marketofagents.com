@@ -30,9 +30,7 @@ export default function AgentCard({
           <div className="badge badge-secondary">NEW</div>
         </h2>
         <p>Makes your life 100% easier</p>
-        <div className="card-actions justify-end">
-          <div className="badge badge-outline">Used {counter} times! </div>
-        </div>
+        <div className="card-actions justify-end"></div>
       </div>
     </div>
   );

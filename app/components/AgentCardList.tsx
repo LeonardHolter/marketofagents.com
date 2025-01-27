@@ -4,7 +4,7 @@ import Category from "./Category";
 
 export interface CategoryObj {
   name: string;
-  agent1: object;
+  agents: AgentObj[];
 }
 
 export interface AgentObj {
@@ -16,15 +16,27 @@ export default function AgentList() {
   const categoryData: CategoryObj[] = [
     {
       name: "Most Popular",
-      agent1: { fileName: "diningAgent", displayName: "Dining Agent" },
+      agents: [
+        { fileName: "professorAgent", displayName: "Professor Agent" },
+        { fileName: "prospectAgent", displayName: "Prospect Agent" },
+        { fileName: "domainAgent", displayName: "Domain Agent" },
+      ],
     },
     {
       name: "Entertainment",
-      agent1: { fileName: "memeAgent", displayName: "Meme Agent" },
+      agents: [
+        { fileName: "memeAgent", displayName: "Meme Agent" },
+        { fileName: "emailAgent", displayName: "Email Agent" },
+        { fileName: "professorAgent", displayName: "Professor Agent" },
+      ],
     },
     {
       name: "Utility",
-      agent1: { fileName: "memeAgent", displayName: "Meme Agent" },
+      agents: [
+        { fileName: "domainAgent", displayName: "Domain Agent" },
+        { fileName: "emailAgent", displayName: "Email Agent" },
+        { fileName: "prospectAgent", displayName: "Prospect Agent" },
+      ],
     },
   ];
 
