@@ -48,6 +48,17 @@ export default function Navbar() {
             About Us
           </Link>
 
+          {/* Request an Agent Button*/}
+
+          <Link
+            href="https://forms.gle/GUFf7axNWKdao9Wb8"
+            className="btn"
+            style={{ backgroundColor: "rgb(250,51,51)", color: "white" }}
+          >
+            Request an Agent
+          </Link>
+
+
           {/* Authentication Buttons */}
           <SignedOut>
             <SignInButton mode="modal">
