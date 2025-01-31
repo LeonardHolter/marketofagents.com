@@ -25,7 +25,7 @@ const LabelManager: React.FC<LabelManagerProps> = ({
         if (data.labels) {
           setLabels(data.labels);
         }
-      } catch (err) {
+      } catch {
         setError("Failed to fetch existing labels");
       }
     };
@@ -64,7 +64,7 @@ const LabelManager: React.FC<LabelManagerProps> = ({
       } else {
         setError("Failed to start monitoring");
       }
-    } catch (err) {
+    } catch {
       setError("Failed to start monitoring");
     }
   };
@@ -89,7 +89,7 @@ const LabelManager: React.FC<LabelManagerProps> = ({
       } else {
         setError(data.error || "Failed to update labels");
       }
-    } catch (err) {
+    } catch {
       setError("Failed to update labels");
     }
   };
