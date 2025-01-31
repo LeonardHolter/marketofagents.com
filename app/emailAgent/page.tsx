@@ -7,7 +7,6 @@ import { useUser } from "@clerk/nextjs";
 
 const EmailAgentPage = () => {
   const { user } = useUser();
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [userId, _] = useState(user?.primaryEmailAddress?.emailAddress || "");
   const [monitoringStatus, setMonitoringStatus] = useState(false);
   const [authUrl, setAuthUrl] = useState("");
