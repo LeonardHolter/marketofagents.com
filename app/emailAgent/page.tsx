@@ -7,9 +7,7 @@ import { useUser } from "@clerk/nextjs";
 
 const EmailAgentPage = () => {
   const { user } = useUser();
-  const [userId, setUserId] = useState(
-    user?.primaryEmailAddress?.emailAddress || ""
-  );
+  const [userId, _] = useState(user?.primaryEmailAddress?.emailAddress || "");
   const [monitoringStatus, setMonitoringStatus] = useState(false);
   const [authUrl, setAuthUrl] = useState("");
   const [authCode, setAuthCode] = useState("");
@@ -27,7 +25,7 @@ const EmailAgentPage = () => {
       const response = await fetch("http://127.0.0.1:5000/active_monitors");
       const data = await response.json();
       setMonitoringStatus(data.active_monitors.includes(userId));
-    } catch (err) {
+    } catch {
       setError("Failed to check monitoring status");
     }
   };
