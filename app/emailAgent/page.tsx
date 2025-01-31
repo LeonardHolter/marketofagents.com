@@ -39,7 +39,7 @@ const EmailAgentPage = () => {
       );
       const data = await response.json();
       setIsAuthenticated(data.authenticated);
-    } catch (err) {
+    } catch {
       setIsAuthenticated(false);
       setError("Failed to check authentication status");
     }
@@ -58,7 +58,7 @@ const EmailAgentPage = () => {
         setIsAuthenticated(true);
         setError("");
       }
-    } catch (err) {
+    } catch {
       setError("Failed to start authentication");
     }
   };
@@ -76,7 +76,7 @@ const EmailAgentPage = () => {
         setMonitoringStatus(true);
         setError("");
       }
-    } catch (err) {
+    } catch {
       setError("Failed to start monitoring");
     }
   };
@@ -90,7 +90,7 @@ const EmailAgentPage = () => {
       if (data.success) {
         setMonitoringStatus(false);
       }
-    } catch (err) {
+    } catch {
       setError("Failed to stop monitoring");
     }
   };
@@ -126,7 +126,7 @@ const EmailAgentPage = () => {
       } else {
         setError("Authentication failed");
       }
-    } catch (err) {
+    } catch {
       setError("Failed to submit authentication code");
     }
   };
