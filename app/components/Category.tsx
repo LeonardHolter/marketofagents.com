@@ -2,7 +2,7 @@
 
 import AgentCard from "./AgentCard";
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import { CategoryObj } from "./AgentCardList";
 
@@ -13,6 +13,7 @@ interface CategoryProps {
 export default function Category({ categoryObj }: CategoryProps) {
   const [agentClicks, setAgentClicks] = useState<{ [key: string]: number }>({});
   const [error, setError] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   // Fetch current click count when the component mounts
   useEffect(() => {
@@ -42,36 +43,97 @@ export default function Category({ categoryObj }: CategoryProps) {
     fetchClicks();
   }, [categoryObj.agents]);
 
-  return (
-    <>
-      {/* display the category's title*/}
-      <h1 className="font-bold text-2xl flex justify-center mt-5">
-        {categoryObj.name}
-      </h1>
+  const scroll = (direction: "left" | "right") => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = 300; // Adjust scroll amount as needed
+      const newScrollPosition =
+        scrollContainerRef.current.scrollLeft +
+        (direction === "left" ? -scrollAmount : scrollAmount);
 
-      {/* display the row */}
-      <div className="flex flex-row flex-wrap space-x-10 justify-center mt-5">
-        {categoryObj.agents.map((agent, index) => (
-          <div
-            key={index}
-            className="flex flex-col sm:flex-wrap sm:flex-row justify-center items-center gap-12 mb-8"
+      scrollContainerRef.current.scrollTo({
+        left: newScrollPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  return (
+    <div className="mb-12">
+      <div className="flex justify-between items-center mb-6">
+        <h2 className="text-2xl font-bold">{categoryObj.name}</h2>
+        <div className="flex gap-2">
+          <button
+            onClick={() => scroll("left")}
+            className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
           >
-            <Link href={`/${agent.fileName}`}>
-              <AgentCard
-                imagepath={`/${agent.fileName}.png`}
-                counter={agentClicks[agent.fileName] || 0}
-              >
-                {agent.displayName}
-              </AgentCard>
-            </Link>
-            {error && (
-              <div className="text-red-500 text-sm mt-4">
-                Failed to load click count. Please try again later.
-              </div>
-            )}
-          </div>
-        ))}
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+          <button
+            onClick={() => scroll("right")}
+            className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
-    </>
+
+      <div
+        ref={scrollContainerRef}
+        className="flex overflow-x-auto gap-6 pb-4 hide-scrollbar"
+      >
+        {categoryObj.agents.map((agent, index) => {
+          const CardWrapper = ({ children }: { children: React.ReactNode }) => {
+            if (agent.isPlaceholder) {
+              return (
+                <div className="cursor-not-allowed opacity-70 flex-shrink-0">
+                  {children}
+                </div>
+              );
+            }
+            return (
+              <Link href={`/${agent.fileName}`} className="flex-shrink-0">
+                {children}
+              </Link>
+            );
+          };
+
+          return (
+            <CardWrapper key={index}>
+              <AgentCard
+                displayName={agent.displayName}
+                description={agent.description}
+                image={agent.image}
+                creator={agent.creator}
+                views={`${agentClicks[agent.fileName] || 0} views`}
+              />
+            </CardWrapper>
+          );
+        })}
+      </div>
+    </div>
   );
 }
