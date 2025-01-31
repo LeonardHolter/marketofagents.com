@@ -2,7 +2,6 @@
 
 import Category from "./Category";
 import TypewriterBanner from "./TypewriterBanner";
-import { Agent } from "@/src/data/agents";
 
 export interface CategoryObj {
   name: string;

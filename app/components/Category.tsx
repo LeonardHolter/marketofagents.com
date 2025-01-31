@@ -12,6 +12,7 @@ interface CategoryProps {
 
 export default function Category({ categoryObj }: CategoryProps) {
   const [agentClicks, setAgentClicks] = useState<{ [key: string]: number }>({});
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [error, setError] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
