@@ -27,6 +27,14 @@ interface DiningRecommendation {
   };
 }
 
+const Card = ({ children, className = "" }) => {
+  return <div className={`rounded-xl ${className}`}>{children}</div>;
+};
+
+const CardContent = ({ children, className = "" }) => {
+  return <div className={`p-6 ${className}`}>{children}</div>;
+};
+
 export default function DiningAgent() {
   const [goal, setGoal] = useState("");
   const [recommendation, setRecommendation] =
