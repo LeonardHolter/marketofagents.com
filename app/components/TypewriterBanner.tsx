@@ -19,7 +19,7 @@ export default function TypewriterBanner() {
 
   return (
     <div className="container mx-auto px-4 mb-12 mt-8">
-      <div className="relative w-full h-[300px] rounded-3xl overflow-hidden">
+      <div className="relative w-full h-[200px] rounded-3xl overflow-hidden">
         {/* Background with solid color and gradient */}
         <div className="absolute inset-0 bg-gray-100" />
         <div className="absolute inset-0 bg-gradient-to-b from-gray-200/50 to-gray-300/80" />

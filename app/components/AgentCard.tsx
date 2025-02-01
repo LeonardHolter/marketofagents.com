@@ -20,7 +20,7 @@ export default function AgentCard({
   return (
     <div className="w-[340px] h-[140px] bg-gray-50 rounded-lg p-4 hover:bg-gray-100 transition-colors">
       <div className="flex items-start gap-4 h-full">
-        <div className="relative w-[100px] h-[100px] rounded-xl overflow-hidden flex-shrink-0">
+        <div className="relative w-[110px] h-[110px] rounded-xl overflow-hidden flex-shrink-0">
           <Image
             src={image}
             alt={displayName}
