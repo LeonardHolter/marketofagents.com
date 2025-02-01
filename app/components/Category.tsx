@@ -13,7 +13,6 @@ interface CategoryProps {
 export default function Category({ categoryObj }: CategoryProps) {
   const [agentClicks, setAgentClicks] = useState<{ [key: string]: number }>({});
 
-  const [setError] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   // Fetch current click count when the component mounts
@@ -35,9 +34,8 @@ export default function Category({ categoryObj }: CategoryProps) {
         const results = await Promise.all(clickPromises);
         const clickCounts = Object.assign({}, ...results);
         setAgentClicks(clickCounts);
-      } catch (err) {
-        console.error("Failed to fetch click count:", err);
-        setError(true);
+      } catch {
+        console.error("Failed to fetch click count:");
       }
     };
 
