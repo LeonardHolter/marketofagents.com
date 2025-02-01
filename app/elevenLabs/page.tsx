@@ -4,6 +4,7 @@ import Link from "next/link";
 import { StarIcon, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Navbar from "../components/Navbar";
+import { Card, CardContent } from "../components/Card";
 
 const ReplitAgentPage = () => {
   const [rating, setRating] = React.useState<number>(0);
