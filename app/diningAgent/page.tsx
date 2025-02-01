@@ -27,11 +27,16 @@ interface DiningRecommendation {
   };
 }
 
-const Card = ({ children, className = "" }) => {
+interface CardProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+const Card = ({ children, className = "" }: CardProps) => {
   return <div className={`rounded-xl ${className}`}>{children}</div>;
 };
 
-const CardContent = ({ children, className = "" }) => {
+const CardContent = ({ children, className = "" }: CardProps) => {
   return <div className={`p-6 ${className}`}>{children}</div>;
 };
 
