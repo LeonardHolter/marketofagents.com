@@ -125,8 +125,8 @@ export default function DiningAgent() {
         {recommendation && (
           <div className="space-y-6">
             {/* Primary Recommendation */}
-            <Card className="bg-white shadow-lg">
-              <CardContent className="p-6">
+            <div className="rounded-xl bg-white shadow-lg">
+              <div className="p-6">
                 <div className="mb-2 text-sm font-medium text-blue-600">
                   Primary Recommendation
                 </div>
@@ -163,13 +163,13 @@ export default function DiningAgent() {
                     )
                   )}
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
             {/* Secondary Recommendation - Only show if it exists */}
             {recommendation.secondary_recommendation && (
-              <Card className="bg-white shadow-lg">
-                <CardContent className="p-6">
+              <div className="rounded-xl bg-white shadow-lg">
+                <div className="p-6">
                   <div className="mb-2 text-sm font-medium text-gray-600">
                     Alternative Option
                   </div>
@@ -206,8 +206,8 @@ export default function DiningAgent() {
                       )
                     )}
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             )}
           </div>
         )}
