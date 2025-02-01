@@ -17,7 +17,6 @@ export default function AgentCard({
   image,
   creator,
   views,
-  id,
 }: AgentCardProps) {
   return (
     <div className="w-[340px] h-[140px] bg-[#27272A] rounded-[16px] p-4 hover:bg-[#333333] transition-colors border border-[#333333]">
