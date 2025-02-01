@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import Navbar from "../components/Navbar";
-import { ReactNode } from "react";
 import React from "react";
 import { Card, CardContent } from "../components/Card";
 
