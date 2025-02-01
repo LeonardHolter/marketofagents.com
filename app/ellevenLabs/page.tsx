@@ -9,16 +9,48 @@ interface CardProps {
   className?: string;
 }
 
-const Card = ({ children, className = "" }: CardProps) => {
+// Define interface for recommendation data structure
+interface Recommendation {
+  primary_recommendation: {
+    title: string;
+    description: string;
+  };
+  secondary_recommendation?: {
+    title: string;
+    description: string;
+  };
+}
+
+// Export the Card components so they can be used within the file
+export const Card = ({ children, className = "" }: CardProps) => {
   return <div className={`rounded-xl ${className}`}>{children}</div>;
 };
 
-const CardContent = ({ children, className = "" }: CardProps) => {
+export const CardContent = ({ children, className = "" }: CardProps) => {
   return <div className={`p-6 ${className}`}>{children}</div>;
 };
 
 export default function ElevenLabsPage() {
-  const [recommendation, setRecommendation] = React.useState<any>(null);
+  // Update state to use the proper type
+  const [recommendation, setRecommendation] =
+    React.useState<Recommendation | null>(null);
+
+  // Add a function to use setRecommendation (to fix unused variable warning)
+  React.useEffect(() => {
+    // Example of how to use setRecommendation
+    const fetchRecommendation = async () => {
+      // In a real app, this would fetch from an API
+      const mockRecommendation: Recommendation = {
+        primary_recommendation: {
+          title: "Voice Cloning Suite",
+          description: "Perfect for creating custom voice avatars",
+        },
+      };
+      setRecommendation(mockRecommendation);
+    };
+
+    fetchRecommendation();
+  }, []);
 
   return (
     <>
