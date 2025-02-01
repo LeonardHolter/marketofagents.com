@@ -1,12 +1,18 @@
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import Navbar from "../components/Navbar";
+import { ReactNode } from "react";
 
-const Card = ({ children, className = "" }) => {
+interface CardProps {
+  children: ReactNode;
+  className?: string;
+}
+
+const Card = ({ children, className = "" }: CardProps) => {
   return <div className={`rounded-xl ${className}`}>{children}</div>;
 };
 
-const CardContent = ({ children, className = "" }) => {
+const CardContent = ({ children, className = "" }: CardProps) => {
   return <div className={`p-6 ${className}`}>{children}</div>;
 };
 
