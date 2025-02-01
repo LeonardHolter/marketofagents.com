@@ -16,18 +16,18 @@ const ReplitAgentPage = () => {
         {/* Hero Section */}
         <div className="text-center mb-8">
           <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-red-500 to-red-600 text-transparent bg-clip-text">
-            Replit Agent Review
+            ElevenLabs Review
           </h1>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-8">
-            An AI-powered coding assistant that revolutionizes the way
-            developers write and understand code
+            A state-of-the-art AI voice generation platform that offers
+            natural-sounding speech synthesis and voice cloning capabilities
           </p>
 
           {/* Showcase Banner */}
           <div className="relative w-full h-[400px] rounded-xl overflow-hidden">
             <Image
-              src="/replit1.png"
-              alt="Replit Agent Showcase"
+              src="/elevenlabsbanner.png"
+              alt="Pear AI Showcase"
               fill
               className="object-cover"
               priority
@@ -59,16 +59,16 @@ const ReplitAgentPage = () => {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <span className="font-semibold text-gray-700">Developer:</span>
-              <span className="text-gray-600">Replit Team</span>
+              <span className="text-gray-600">ElevenLabs Team</span>
             </div>
             <div className="flex items-center space-x-2">
               <span className="font-semibold text-gray-700">Website:</span>
               <Link
-                href="https://replit.com/ai"
+                href="https://elevenlabs.io"
                 target="_blank"
                 className="text-blue-600 hover:text-blue-800 flex items-center gap-1 transition-colors"
               >
-                replit.com/ai <ExternalLink className="w-4 h-4" />
+                elevenlabs.io <ExternalLink className="w-4 h-4" />
               </Link>
             </div>
           </div>
@@ -92,14 +92,17 @@ const ReplitAgentPage = () => {
                 />
               </svg>
             </span>
-            About Replit Agent
+            About ElevenLabs
           </h2>
           <p className="text-gray-600 leading-relaxed">
-            Replit Agent is an AI-powered coding assistant that helps developers
-            write, debug, and understand code. It integrates directly into the
-            Replit IDE, providing contextual assistance and code suggestions in
-            real-time. With its advanced machine learning capabilities, it
-            serves as your intelligent programming companion.
+            ElevenLabs is a cutting-edge AI voice technology company that
+            provides sophisticated text-to-speech and voice cloning solutions.
+            Their platform combines state-of-the-art deep learning models with
+            advanced audio processing to create incredibly natural and
+            emotionally expressive synthetic voices. Whether for content
+            creators, developers, or enterprises, ElevenLabs offers tools to
+            transform written content into lifelike speech in multiple languages
+            and voices.
           </p>
         </div>
 
@@ -126,28 +129,28 @@ const ReplitAgentPage = () => {
           <div className="grid md:grid-cols-2 gap-4">
             {[
               {
-                title: "Code Completion",
-                desc: "Intelligent code suggestions and auto-completion",
+                title: "Content Creation",
+                desc: "Generate voiceovers for videos and podcasts",
               },
               {
-                title: "Debugging Assistant",
-                desc: "Help identify and fix code issues",
+                title: "Voice Cloning",
+                desc: "Create custom AI voices from voice samples",
               },
               {
-                title: "Code Explanation",
-                desc: "Clear documentation and code understanding",
+                title: "Audiobook Production",
+                desc: "Convert books and articles into audio content",
               },
               {
-                title: "Learning Tool",
-                desc: "Master programming concepts effectively",
+                title: "Localization",
+                desc: "Translate and voice content in multiple languages",
               },
               {
-                title: "Project Setup",
-                desc: "Quick project scaffolding and boilerplate",
+                title: "Game Development",
+                desc: "Create dynamic voice content for gaming",
               },
               {
-                title: "Code Review",
-                desc: "Automated code review and best practices",
+                title: "Accessibility",
+                desc: "Make content accessible through voice synthesis",
               },
             ].map((item, index) => (
               <div
@@ -201,7 +204,7 @@ const ReplitAgentPage = () => {
             </div>
             <textarea
               className="w-full p-4 border rounded-lg min-h-[120px] bg-white/70 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all"
-              placeholder="Share your experience with Replit Agent..."
+              placeholder="Share your experience with ElevenLabs..."
             />
             <button
               className="w-full bg-[rgb(250,51,51)] text-white px-6 py-3 rounded-lg hover:opacity-90 transition-opacity font-semibold"

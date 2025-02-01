@@ -16,17 +16,17 @@ const ReplitAgentPage = () => {
         {/* Hero Section */}
         <div className="text-center mb-8">
           <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-red-500 to-red-600 text-transparent bg-clip-text">
-            Replit Agent Review
+            Cursor AI Review
           </h1>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-8">
-            An AI-powered coding assistant that revolutionizes the way
-            developers write and understand code
+            An AI-powered coding assistant that enhances your development
+            workflow with intelligent code completion and chat capabilities
           </p>
 
           {/* Showcase Banner */}
           <div className="relative w-full h-[400px] rounded-xl overflow-hidden">
             <Image
-              src="/replit1.png"
+              src="/cursorbanner.png"
               alt="Replit Agent Showcase"
               fill
               className="object-cover"
@@ -59,16 +59,16 @@ const ReplitAgentPage = () => {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <span className="font-semibold text-gray-700">Developer:</span>
-              <span className="text-gray-600">Replit Team</span>
+              <span className="text-gray-600">Cursor Team</span>
             </div>
             <div className="flex items-center space-x-2">
               <span className="font-semibold text-gray-700">Website:</span>
               <Link
-                href="https://replit.com/ai"
+                href="https://cursor.sh"
                 target="_blank"
                 className="text-blue-600 hover:text-blue-800 flex items-center gap-1 transition-colors"
               >
-                replit.com/ai <ExternalLink className="w-4 h-4" />
+                cursor.sh <ExternalLink className="w-4 h-4" />
               </Link>
             </div>
           </div>
@@ -92,14 +92,15 @@ const ReplitAgentPage = () => {
                 />
               </svg>
             </span>
-            About Replit Agent
+            About Cursor AI
           </h2>
           <p className="text-gray-600 leading-relaxed">
-            Replit Agent is an AI-powered coding assistant that helps developers
-            write, debug, and understand code. It integrates directly into the
-            Replit IDE, providing contextual assistance and code suggestions in
-            real-time. With its advanced machine learning capabilities, it
-            serves as your intelligent programming companion.
+            Cursor AI is a revolutionary code editor that combines the power of
+            AI with traditional development tools. It features an integrated AI
+            chat interface, intelligent code completion, and advanced code
+            understanding capabilities. Built on top of VSCode, it provides a
+            familiar yet enhanced coding experience with AI-powered features
+            that help developers write better code faster.
           </p>
         </div>
 
@@ -126,28 +127,28 @@ const ReplitAgentPage = () => {
           <div className="grid md:grid-cols-2 gap-4">
             {[
               {
+                title: "AI Chat Interface",
+                desc: "Natural language coding assistance and queries",
+              },
+              {
                 title: "Code Completion",
-                desc: "Intelligent code suggestions and auto-completion",
+                desc: "Smart suggestions and auto-completion",
               },
               {
-                title: "Debugging Assistant",
-                desc: "Help identify and fix code issues",
+                title: "Code Understanding",
+                desc: "AI-powered code explanation and documentation",
               },
               {
-                title: "Code Explanation",
-                desc: "Clear documentation and code understanding",
+                title: "Refactoring Assistant",
+                desc: "Intelligent code restructuring suggestions",
               },
               {
-                title: "Learning Tool",
-                desc: "Master programming concepts effectively",
+                title: "Error Detection",
+                desc: "Real-time error identification and fixes",
               },
               {
-                title: "Project Setup",
-                desc: "Quick project scaffolding and boilerplate",
-              },
-              {
-                title: "Code Review",
-                desc: "Automated code review and best practices",
+                title: "Code Generation",
+                desc: "AI-assisted code generation from descriptions",
               },
             ].map((item, index) => (
               <div
@@ -201,7 +202,7 @@ const ReplitAgentPage = () => {
             </div>
             <textarea
               className="w-full p-4 border rounded-lg min-h-[120px] bg-white/70 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all"
-              placeholder="Share your experience with Replit Agent..."
+              placeholder="Share your experience with Cursor AI..."
             />
             <button
               className="w-full bg-[rgb(250,51,51)] text-white px-6 py-3 rounded-lg hover:opacity-90 transition-opacity font-semibold"
