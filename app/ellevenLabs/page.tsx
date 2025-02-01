@@ -3,11 +3,7 @@ import { ExternalLink } from "lucide-react";
 import Navbar from "../components/Navbar";
 import { ReactNode } from "react";
 import React from "react";
-
-interface CardProps {
-  children: ReactNode;
-  className?: string;
-}
+import { Card, CardContent } from "../components/Card";
 
 // Define interface for recommendation data structure
 interface Recommendation {
@@ -20,15 +16,6 @@ interface Recommendation {
     description: string;
   };
 }
-
-// Export the Card components so they can be used within the file
-export const Card = ({ children, className = "" }: CardProps) => {
-  return <div className={`rounded-xl ${className}`}>{children}</div>;
-};
-
-export const CardContent = ({ children, className = "" }: CardProps) => {
-  return <div className={`p-6 ${className}`}>{children}</div>;
-};
 
 export default function ElevenLabsPage() {
   // Update state to use the proper type
