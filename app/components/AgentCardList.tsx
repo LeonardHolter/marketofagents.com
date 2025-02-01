@@ -15,6 +15,7 @@ export interface AgentObj {
   image: string;
   creator: string;
   isPlaceholder?: boolean;
+  id: string;
 }
 
 export default function AgentList() {
@@ -28,6 +29,7 @@ export default function AgentList() {
           description: "Makes memes for you",
           image: "/memeAgent.png",
           creator: "@Leonard",
+          id: "memeAgent",
         },
         {
           fileName: "emailAgent",
@@ -35,6 +37,7 @@ export default function AgentList() {
           description: "Sorts your emails for you.",
           image: "/emailAgent.png",
           creator: "@Leonard",
+          id: "emailAgent",
         },
         {
           fileName: "diningAgent",
@@ -42,6 +45,7 @@ export default function AgentList() {
           description: "Dining recommendations.",
           image: "/diningAgent.png",
           creator: "@Leonard",
+          id: "diningAgent",
         },
       ],
     },
@@ -54,6 +58,7 @@ export default function AgentList() {
           description: "Make any website in seconds",
           image: "/replitlogo.png",
           creator: "@Replit",
+          id: "replitAgent",
         },
         {
           fileName: "cursorAgent",
@@ -61,6 +66,7 @@ export default function AgentList() {
           description: "AI Code Editor",
           image: "/cursor.png",
           creator: "@Cursor",
+          id: "cursorAgent",
         },
         {
           fileName: "pearAgent",
@@ -68,6 +74,7 @@ export default function AgentList() {
           description: "Open Source AI IDE",
           image: "/pear.png",
           creator: "@Nang&Pan",
+          id: "pearAgent",
         },
         {
           fileName: "elevenLabs",
@@ -75,6 +82,7 @@ export default function AgentList() {
           description: "AI Voice Agent",
           image: "/elevenlabs.png",
           creator: "@Elevenlabs",
+          id: "elevenLabs",
         },
       ],
     },

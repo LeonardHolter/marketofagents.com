@@ -128,6 +128,7 @@ export default function Category({ categoryObj }: CategoryProps) {
                 image={agent.image}
                 creator={agent.creator}
                 views={`${agentClicks[agent.fileName] || 0} views`}
+                id={agent.fileName}
               />
             </CardWrapper>
           );
