@@ -63,10 +63,10 @@ export default function Category({ categoryObj }: CategoryProps) {
         <div className="flex gap-2">
           <button
             onClick={() => scroll("left")}
-            className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+            className="p-2 rounded-full bg-[#27272A] hover:bg-[#333333] transition-colors"
           >
             <svg
-              className="w-6 h-6"
+              className="w-6 h-6 text-gray-400"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -81,10 +81,10 @@ export default function Category({ categoryObj }: CategoryProps) {
           </button>
           <button
             onClick={() => scroll("right")}
-            className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+            className="p-2 rounded-full bg-[#27272A] hover:bg-[#333333] transition-colors"
           >
             <svg
-              className="w-6 h-6"
+              className="w-6 h-6 text-gray-400"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
