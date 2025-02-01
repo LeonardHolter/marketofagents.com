@@ -21,7 +21,7 @@ export interface AgentObj {
 export default function AgentList() {
   const categoryData: CategoryObj[] = [
     {
-      name: "For you",
+      name: "MOA Exclusive",
       agents: [
         {
           fileName: "memeAgent",
@@ -31,14 +31,7 @@ export default function AgentList() {
           creator: "@Leonard",
           id: "memeAgent",
         },
-        {
-          fileName: "emailAgent",
-          displayName: "Email Sorter",
-          description: "Sorts your emails for you.",
-          image: "/emailAgent.png",
-          creator: "@Leonard",
-          id: "emailAgent",
-        },
+
         {
           fileName: "diningAgent",
           displayName: "Columbia Dining Hall",
