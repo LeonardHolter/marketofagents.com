@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { ExternalLink } from "lucide-react";
+
 <div className="text-center mb-8">
   <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-red-500 to-red-600 text-transparent bg-clip-text">
     ElevenLabs AI Review
