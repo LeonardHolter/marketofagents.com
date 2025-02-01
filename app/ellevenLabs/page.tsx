@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import Navbar from "../components/Navbar";
 import { ReactNode } from "react";
+import React from "react";
 
 interface CardProps {
   children: ReactNode;
@@ -17,6 +18,8 @@ const CardContent = ({ children, className = "" }: CardProps) => {
 };
 
 export default function ElevenLabsPage() {
+  const [recommendation, setRecommendation] = React.useState<any>(null);
+
   return (
     <>
       <Navbar />
@@ -115,16 +118,32 @@ export default function ElevenLabsPage() {
           <div className="space-y-6">
             {/* Primary Recommendation */}
             <Card className="bg-white shadow-lg">
-              <CardContent className="p-6">
-                {/* Existing card content... */}
+              <CardContent>
+                <div className="mb-2 text-sm font-medium text-blue-600">
+                  Primary Recommendation
+                </div>
+                <h2 className="text-2xl font-semibold mb-4">
+                  {recommendation.primary_recommendation.title}
+                </h2>
+                <p className="text-gray-600 mb-6">
+                  {recommendation.primary_recommendation.description}
+                </p>
               </CardContent>
             </Card>
 
             {/* Secondary Recommendation */}
             {recommendation.secondary_recommendation && (
               <Card className="bg-white shadow-lg">
-                <CardContent className="p-6">
-                  {/* Existing card content... */}
+                <CardContent>
+                  <div className="mb-2 text-sm font-medium text-gray-600">
+                    Alternative Option
+                  </div>
+                  <h2 className="text-2xl font-semibold mb-4">
+                    {recommendation.secondary_recommendation.title}
+                  </h2>
+                  <p className="text-gray-600 mb-6">
+                    {recommendation.secondary_recommendation.description}
+                  </p>
                 </CardContent>
               </Card>
             )}
