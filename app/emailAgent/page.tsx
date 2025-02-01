@@ -7,9 +7,7 @@ import { useUser } from "@clerk/nextjs";
 
 const EmailAgentPage = () => {
   const { user } = useUser();
-  const [userId, _setUserId] = useState(
-    user?.primaryEmailAddress?.emailAddress || ""
-  );
+  const [userId] = useState(user?.primaryEmailAddress?.emailAddress || "");
   const [monitoringStatus, setMonitoringStatus] = useState(false);
   const [authUrl, setAuthUrl] = useState("");
   const [authCode, setAuthCode] = useState("");

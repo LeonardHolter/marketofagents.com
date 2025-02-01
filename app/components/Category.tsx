@@ -13,7 +13,7 @@ interface CategoryProps {
 export default function Category({ categoryObj }: CategoryProps) {
   const [agentClicks, setAgentClicks] = useState<{ [key: string]: number }>({});
 
-  const [_error, setError] = useState(false);
+  const [setError] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   // Fetch current click count when the component mounts
