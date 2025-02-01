@@ -12,7 +12,7 @@ export default function AboutUs() {
       <main className="bg-gradient-to-b from-white to-gray-50 min-h-screen">
         <div className="container mx-auto px-6 py-16">
           {/* Title Section */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -30,13 +30,15 @@ export default function AboutUs() {
                 />
               </span>
             </h1>
-            <p className="text-xl text-gray-600">Find your next AI-powered solution today</p>
+            <p className="text-xl text-gray-600">
+              Find your next AI-powered solution today
+            </p>
           </motion.div>
 
           {/* Content Section */}
           <div className="flex flex-col md:flex-row items-center gap-12">
             {/* Image Section */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -50,29 +52,42 @@ export default function AboutUs() {
             </motion.div>
 
             {/* Text Section */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-center md:text-left space-y-6"
             >
               <p className="text-xl text-gray-700 leading-relaxed">
-                Welcome to <span className="font-semibold text-red-600">marketofagents</span>
+                Welcome to{" "}
+                <span className="font-semibold text-red-600">
+                  marketofagents
+                </span>
                 ! We are proud to offer a one-stop marketplace where you can
                 find all kinds of AI agents tailored to your needs. Whether
-                you're looking for{" "}
-                <span className="font-semibold bg-red-100 px-2 py-1 rounded">meme creators</span>,{" "}
-                <span className="font-semibold bg-blue-100 px-2 py-1 rounded">coding assistants</span>, or
-                even <span className="font-semibold bg-green-100 px-2 py-1 rounded">restaurant guides</span>,
-                we have it all.
+                you&aposre looking for{" "}
+                <span className="font-semibold bg-red-100 px-2 py-1 rounded">
+                  meme creators
+                </span>
+                ,{" "}
+                <span className="font-semibold bg-blue-100 px-2 py-1 rounded">
+                  coding assistants
+                </span>
+                , or even{" "}
+                <span className="font-semibold bg-green-100 px-2 py-1 rounded">
+                  restaurant guides
+                </span>
+                , we have it all.
               </p>
               <p className="text-xl text-gray-700 leading-relaxed">
                 From helping you craft the perfect meme to assisting with
                 advanced technical tasks,{" "}
-                <span className="font-semibold text-red-600">marketofagents</span> is your
-                go-to resource for innovative solutions. Explore our diverse
-                range of agents and see how they can transform the way you work,
-                create, and explore.
+                <span className="font-semibold text-red-600">
+                  marketofagents
+                </span>{" "}
+                is your go-to resource for innovative solutions. Explore our
+                diverse range of agents and see how they can transform the way
+                you work, create, and explore.
               </p>
               <div className="mt-8">
                 <motion.button
