@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { useUser, useClerk } from "@clerk/nextjs";
 import Navbar from "../components/Navbar";
+import Image from "next/image";
 
 const MemeGenerator = () => {
   const [topic, setTopic] = useState("");
@@ -113,61 +114,92 @@ const MemeGenerator = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-gray-100 flex flex-col items-center p-4">
-        <div className="justify-top">
-          <h1 className="text-4xl font-bold text-gray-800 mb-10 mt-5 justify-center">
-            {displayTitle}
-          </h1>
-          <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-md">
-            <label className="block text-gray-700 font-medium mb-2">
-              Meme topic:
-            </label>
-            <input
-              type="text"
-              className="w-full p-2 border rounded-lg mb-4"
-              placeholder="e.g., cats, programming, etc."
-              value={topic}
-              onChange={(e) => setTopic(e.target.value)}
-            />
-            <button
-              onClick={handleGenerateMeme}
-              className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 active:bg-blue-700 active:scale-95 transition"
-            >
-              Generate Meme
-            </button>
-
-            <div className="mt-4 text-gray-700 font-medium text-center">
-              {timerRunning && <p>Time elapsed: {seconds} seconds</p>}
+      <div className="min-h-screen bg-zinc-900 flex flex-col items-center p-4">
+        <div className="container mx-auto flex flex-col md:flex-row items-start gap-8 mt-5">
+          {/* Left side - Robot Image */}
+          <div className="md:w-1/3">
+            <div className="sticky top-24">
+              <Image
+                src="/memerobot.png"
+                alt="Meme Robot"
+                width={400}
+                height={400}
+                className="rounded-lg"
+              />
             </div>
+          </div>
 
-            <div className="mt-4 text-gray-800 font-medium text-center">
-              Total memes generated: <span className="font-bold">{clicks}</span>
-            </div>
-
-            {error && (
-              <div className="mt-4 text-red-500 text-center font-medium">
-                {error}
+          {/* Right side - Chat style intro and form */}
+          <div className="md:w-2/3">
+            {/* First capsule */}
+            <div className="bg-[#333333] rounded-xl p-6 mb-8 shadow-lg inline-block max-w-[600px]">
+              <div className="flex items-center gap-3 mb-4">
+                <h2 className="text-xl text-white font-medium">MOA Meme Agent</h2>
+                <span className="px-2 py-1 rounded-full bg-[#444444] text-sm text-gray-300">c.ai</span>
               </div>
-            )}
+              <p className="text-gray-300 text-lg">
+                Tell me what Meme you'd like to make, and I'll make it for you
+              </p>
+            </div>
 
-            {memeUrl && (
-              <div className="mt-6 text-center">
-                <p className="text-gray-700 font-medium mb-2">Your Meme:</p>
-                <img
-                  src={memeUrl}
-                  alt="Generated Meme"
-                  className="w-full h-auto rounded-lg border"
+            {/* Form content - now also inline-block */}
+            <div className="inline-block w-[600px]"> {/* Matching width with top capsule */}
+              <div className="relative">
+                <input
+                  type="text"
+                  className="w-full p-4 pr-12 bg-[#333333] text-white rounded-full border border-gray-600 focus:outline-none focus:border-gray-500"
+                  placeholder="Send a message..."
+                  value={topic}
+                  onChange={(e) => setTopic(e.target.value)}
                 />
+                <button
+                  onClick={handleGenerateMeme}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white hover:bg-gray-100 transition-colors"
+                >
+                  <svg
+                    className="w-6 h-6 text-black"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                    />
+                  </svg>
+                </button>
               </div>
-            )}
 
-            {hasUsedGenerator && !isSignedIn && (
-              <div className="mt-4 text-center">
-                <p className="text-gray-700 mb-2">
-                  Please sign in to continue generating memes!
-                </p>
+              {/* Stats and results below the input */}
+              <div className="mt-4 text-gray-400 text-center">
+                {timerRunning && <p>Time elapsed: {seconds} seconds</p>}
+                <p className="mt-2">Total memes generated: <span className="font-bold">{clicks}</span></p>
               </div>
-            )}
+
+              {error && (
+                <div className="mt-4 text-red-500 text-center">
+                  {error}
+                </div>
+              )}
+
+              {memeUrl && (
+                <div className="mt-6 text-center">
+                  <img
+                    src={memeUrl}
+                    alt="Generated Meme"
+                    className="w-full h-auto rounded-lg border border-gray-700"
+                  />
+                </div>
+              )}
+
+              {hasUsedGenerator && !isSignedIn && (
+                <div className="mt-4 text-center text-gray-400">
+                  Please sign in to continue generating memes!
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
