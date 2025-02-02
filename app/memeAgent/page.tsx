@@ -110,7 +110,6 @@ const MemeGenerator = () => {
     }
   };
 
-  const displayTitle = "Meme Agent";
   return (
     <>
       <Navbar />
