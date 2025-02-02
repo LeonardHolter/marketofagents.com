@@ -96,7 +96,7 @@ export default function DiningAgent() {
   return (
     <>
       <Navbar />
-      <div className="container mx-auto px-4 py-8 max-w-3xl bg-black min-h-screen">
+      <div className="container mx-auto px-4 py-8 max-w-3xl bg-zinc-900 min-h-screen">
         <h1 className="text-3xl font-bold mb-6 text-center text-white">
           Columbia Dining Hall Recommendation
         </h1>

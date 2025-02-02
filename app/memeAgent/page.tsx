@@ -134,16 +134,23 @@ const MemeGenerator = () => {
             {/* First capsule */}
             <div className="bg-[#333333] rounded-xl p-6 mb-8 shadow-lg inline-block max-w-[600px]">
               <div className="flex items-center gap-3 mb-4">
-                <h2 className="text-xl text-white font-medium">MOA Meme Agent</h2>
-                <span className="px-2 py-1 rounded-full bg-[#444444] text-sm text-gray-300">c.ai</span>
+                <h2 className="text-xl text-white font-medium">
+                  MOA Meme Agent
+                </h2>
+                <span className="px-2 py-1 rounded-full bg-[#444444] text-sm text-gray-300">
+                  c.ai
+                </span>
               </div>
               <p className="text-gray-300 text-lg">
-                Tell me what Meme you'd like to make, and I'll make it for you
+                Tell me what Meme you&aposd like to make, and I&aposll make it
+                for you
               </p>
             </div>
 
             {/* Form content - now also inline-block */}
-            <div className="inline-block w-[600px]"> {/* Matching width with top capsule */}
+            <div className="inline-block w-[600px]">
+              {" "}
+              {/* Matching width with top capsule */}
               <div className="relative">
                 <input
                   type="text"
@@ -171,19 +178,17 @@ const MemeGenerator = () => {
                   </svg>
                 </button>
               </div>
-
               {/* Stats and results below the input */}
               <div className="mt-4 text-gray-400 text-center">
                 {timerRunning && <p>Time elapsed: {seconds} seconds</p>}
-                <p className="mt-2">Total memes generated: <span className="font-bold">{clicks}</span></p>
+                <p className="mt-2">
+                  Total memes generated:{" "}
+                  <span className="font-bold">{clicks}</span>
+                </p>
               </div>
-
               {error && (
-                <div className="mt-4 text-red-500 text-center">
-                  {error}
-                </div>
+                <div className="mt-4 text-red-500 text-center">{error}</div>
               )}
-
               {memeUrl && (
                 <div className="mt-6 text-center">
                   <img
@@ -193,7 +198,6 @@ const MemeGenerator = () => {
                   />
                 </div>
               )}
-
               {hasUsedGenerator && !isSignedIn && (
                 <div className="mt-4 text-center text-gray-400">
                   Please sign in to continue generating memes!
