@@ -96,8 +96,8 @@ export default function DiningAgent() {
   return (
     <>
       <Navbar />
-      <div className="container mx-auto px-4 py-8 max-w-3xl">
-        <h1 className="text-3xl font-bold mb-6 text-center">
+      <div className="container mx-auto px-4 py-8 max-w-3xl bg-black min-h-screen">
+        <h1 className="text-3xl font-bold mb-6 text-center text-white">
           Columbia Dining Hall Recommendation
         </h1>
 
@@ -107,7 +107,7 @@ export default function DiningAgent() {
               value={goal}
               onChange={(e) => setGoal(e.target.value)}
               placeholder="Enter your nutrition goal (e.g., build muscle, bulk, cut, eat healthy, vegetarian options)"
-              className="w-full p-3 border rounded-lg resize-none h-32"
+              className="w-full p-3 border rounded-lg resize-none h-32 bg-white text-black border-gray-700"
               required
             />
             <button
@@ -125,37 +125,40 @@ export default function DiningAgent() {
         {recommendation && (
           <div className="space-y-6">
             {/* Primary Recommendation */}
-            <div className="rounded-xl bg-white shadow-lg">
+            <div className="rounded-xl bg-gray-800 shadow-lg">
               <div className="p-6">
-                <div className="mb-2 text-sm font-medium text-blue-600">
+                <div className="mb-2 text-sm font-medium text-blue-400">
                   Primary Recommendation
                 </div>
-                <h2 className="text-2xl font-semibold mb-4">
+                <h2 className="text-2xl font-semibold mb-4 text-white">
                   {recommendation.primary_recommendation.dining_hall}
                 </h2>
-                <p className="text-gray-600 mb-6">
+                <p className="text-gray-300 mb-6">
                   {recommendation.primary_recommendation.reason}
                 </p>
 
-                <h3 className="text-xl font-semibold mb-4">
+                <h3 className="text-xl font-semibold mb-4 text-white">
                   Top Recommended Dishes:
                 </h3>
                 <div className="space-y-4">
                   {recommendation.primary_recommendation.top_dishes.map(
                     (dish, index) => (
-                      <div key={index} className="border-b pb-4">
-                        <h4 className="font-medium">{dish.dish}</h4>
-                        <p className="text-sm text-gray-600">
+                      <div
+                        key={index}
+                        className="border-b border-gray-700 pb-4"
+                      >
+                        <h4 className="font-medium text-white">{dish.dish}</h4>
+                        <p className="text-sm text-gray-300">
                           Calories: {dish.estimated_calories}
                         </p>
-                        <p className="text-sm text-gray-600">
+                        <p className="text-sm text-gray-300">
                           Benefits: {dish.nutritional_benefits}
                         </p>
                         <div className="flex items-center mt-2">
-                          <span className="text-sm text-gray-600">
+                          <span className="text-sm text-gray-300">
                             Rating:{" "}
                           </span>
-                          <span className="ml-2 font-medium">
+                          <span className="ml-2 font-medium text-white">
                             {dish.rating}/10
                           </span>
                         </div>
@@ -168,37 +171,42 @@ export default function DiningAgent() {
 
             {/* Secondary Recommendation - Only show if it exists */}
             {recommendation.secondary_recommendation && (
-              <div className="rounded-xl bg-white shadow-lg">
+              <div className="rounded-xl bg-gray-800 shadow-lg">
                 <div className="p-6">
-                  <div className="mb-2 text-sm font-medium text-gray-600">
+                  <div className="mb-2 text-sm font-medium text-gray-300">
                     Alternative Option
                   </div>
-                  <h2 className="text-2xl font-semibold mb-4">
+                  <h2 className="text-2xl font-semibold mb-4 text-white">
                     {recommendation.secondary_recommendation.dining_hall}
                   </h2>
-                  <p className="text-gray-600 mb-6">
+                  <p className="text-gray-300 mb-6">
                     {recommendation.secondary_recommendation.reason}
                   </p>
 
-                  <h3 className="text-xl font-semibold mb-4">
+                  <h3 className="text-xl font-semibold mb-4 text-white">
                     Top Recommended Dishes:
                   </h3>
                   <div className="space-y-4">
                     {recommendation.secondary_recommendation.top_dishes.map(
                       (dish, index) => (
-                        <div key={index} className="border-b pb-4">
-                          <h4 className="font-medium">{dish.dish}</h4>
-                          <p className="text-sm text-gray-600">
+                        <div
+                          key={index}
+                          className="border-b border-gray-700 pb-4"
+                        >
+                          <h4 className="font-medium text-white">
+                            {dish.dish}
+                          </h4>
+                          <p className="text-sm text-gray-300">
                             Calories: {dish.estimated_calories}
                           </p>
-                          <p className="text-sm text-gray-600">
+                          <p className="text-sm text-gray-300">
                             Benefits: {dish.nutritional_benefits}
                           </p>
                           <div className="flex items-center mt-2">
-                            <span className="text-sm text-gray-600">
+                            <span className="text-sm text-gray-300">
                               Rating:{" "}
                             </span>
-                            <span className="ml-2 font-medium">
+                            <span className="ml-2 font-medium text-white">
                               {dish.rating}/10
                             </span>
                           </div>

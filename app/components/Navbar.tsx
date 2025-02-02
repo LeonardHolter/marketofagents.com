@@ -6,8 +6,10 @@ import { useState } from "react";
 export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState("");
 
-  const buttonClasses = "px-4 py-2 rounded-full border border-gray-600 text-white hover:bg-[#333333] transition-colors";
-  const enterpriseButtonClasses = "px-4 py-2 rounded-full bg-white text-black hover:bg-gray-100 transition-colors font-medium";
+  const buttonClasses =
+    "px-4 py-2 rounded-full border border-gray-600 text-white hover:bg-[#333333] transition-colors";
+  const enterpriseButtonClasses =
+    "px-4 py-2 rounded-full bg-white text-black hover:bg-gray-100 transition-colors font-medium";
 
   return (
     <div className="navbar bg-zinc-900 px-4">
@@ -25,10 +27,7 @@ export default function Navbar() {
 
           {/* Navigation Links - Desktop */}
           <div className="hidden md:flex items-center space-x-3">
-            <Link
-              href="/about-us"
-              className={buttonClasses}
-            >
+            <Link href="/about-us" className={buttonClasses}>
               About Us
             </Link>
             <Link
@@ -43,11 +42,8 @@ export default function Navbar() {
             >
               List Agent
             </Link>
-            <Link
-              href="/enterprise"
-              className={enterpriseButtonClasses}
-            >
-              Enterprise
+            <Link href="/catalog" className={enterpriseButtonClasses}>
+              Catalog
             </Link>
           </div>
         </div>
@@ -89,7 +85,10 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <label htmlFor="menu-toggle" className="btn btn-circle btn-ghost text-white">
+            <label
+              htmlFor="menu-toggle"
+              className="btn btn-circle btn-ghost text-white"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
