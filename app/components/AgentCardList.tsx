@@ -43,7 +43,49 @@ export default function AgentList() {
       ],
     },
     {
-      name: "Try these",
+      name: "Coding",
+      agents: [
+        {
+          fileName: "replitAgent",
+          displayName: "Replit Agent",
+          description: "Make any website in seconds",
+          image: "/replitlogo.png",
+          creator: "@Replit",
+          id: "replitAgent",
+        },
+        {
+          fileName: "cursorAgent",
+          displayName: "Cursor",
+          description: "AI Code Editor",
+          image: "/cursor.png",
+          creator: "@Cursor",
+          id: "cursorAgent",
+        },
+        {
+          fileName: "pearAgent",
+          displayName: "PearAI",
+          description: "Open Source AI IDE",
+          image: "/pear.png",
+          creator: "@Nang&Pan",
+          id: "pearAgent",
+        },
+      ],
+    },
+    {
+      name: "Voice Generation",
+      agents: [
+        {
+          fileName: "elevenLabs",
+          displayName: "ElevenLabs",
+          description: "AI Voice Agent",
+          image: "/elevenlabs.png",
+          creator: "@Elevenlabs",
+          id: "elevenLabs",
+        },
+      ],
+    },
+    {
+      name: "All Non-MOA Exlusive Agents",
       agents: [
         {
           fileName: "replitAgent",
