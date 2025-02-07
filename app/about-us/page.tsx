@@ -9,7 +9,7 @@ export default function AboutUs() {
   return (
     <>
       <NavBar />
-      <main className="bg-gradient-to-b from-white to-gray-50 min-h-screen">
+      <main className="pl-16 pt-12 bg-gradient-to-b from-white to-gray-50 min-h-screen">
         <div className="container mx-auto px-6 py-16">
           {/* Title Section */}
           <motion.div

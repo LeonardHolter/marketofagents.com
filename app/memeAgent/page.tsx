@@ -113,7 +113,7 @@ const MemeGenerator = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-zinc-900 flex flex-col items-center p-4">
+      <div className="min-h-screen bg-[#141414] pl-16 pt-12">
         <div className="container mx-auto flex flex-col md:flex-row items-start gap-8 mt-5">
           {/* Left side - Robot Image */}
           <div className="md:w-1/3">

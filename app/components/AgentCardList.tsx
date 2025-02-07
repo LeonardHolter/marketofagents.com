@@ -1,7 +1,7 @@
 "use client";
 
 import Category from "./Category";
-import TypewriterBanner from "./TypewriterBanner";
+/* import TypewriterBanner from "./TypewriterBanner";*/
 
 export interface CategoryObj {
   name: string;
@@ -83,8 +83,8 @@ export default function AgentList() {
 
   return (
     <>
-      <TypewriterBanner />
-      <div className="container mx-auto px-4">
+      {/*<TypewriterBanner />*/}
+      <div className="container mx-auto px-4 mt-12">
         {/* Categories */}
         {categoryData.map((category) => (
           <Category categoryObj={category} key={category.name} />

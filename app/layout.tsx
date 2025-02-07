@@ -77,7 +77,9 @@ export default function RootLayout({
           />
           <meta property="twitter:image" content="/MOALogo.jpeg" />
         </head>
-        <body className={`${geistSans.variable}  antialiased`}>{children}</body>
+        <body className={`${geistSans.variable}  antialiased bg-[#0F0F0F]`}>
+          {children}
+        </body>
       </html>
     </ClerkProvider>
   );

@@ -8,8 +8,10 @@ export default function Home() {
     <div>
       <ClerkProvider>
         <NavBar />
-        <AgentCardList />
-        <Footer />
+        <main className="pl-16 pt-12">
+          <AgentCardList />
+          <Footer />
+        </main>
       </ClerkProvider>
     </div>
   );

@@ -19,7 +19,7 @@ export default function AgentCard({
   views,
 }: AgentCardProps) {
   return (
-    <div className="w-[340px] h-[140px] bg-[#27272A] rounded-[16px] p-4 hover:bg-[#333333] transition-colors border border-[#333333]">
+    <div className="w-[340px] h-[140px] bg-[#1F1F1F] rounded-[16px] p-4 hover:bg-[#2A2A2A] transition-colors border border-gray-800">
       <div className="flex items-start gap-4 h-full">
         <div className="relative w-[110px] h-[110px] rounded-xl overflow-hidden flex-shrink-0">
           <Image
