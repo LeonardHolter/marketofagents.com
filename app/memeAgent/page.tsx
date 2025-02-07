@@ -114,12 +114,12 @@ const MemeGenerator = () => {
     <>
       <Navbar />
       <div className="min-h-screen bg-[#141414] pl-16 pt-12">
-        <div className="container mx-auto flex flex-col items-center gap-8 mt-5">
+        <div className="container mx-auto flex flex-col items-center gap-4 mt-3">
           {/* Chat style intro and form */}
           <div className="w-full max-w-[600px]">
             {/* First capsule */}
-            <div className="bg-[#333333] rounded-xl p-6 mb-8 shadow-lg">
-              <div className="flex items-center gap-3 mb-4">
+            <div className="bg-[#333333] rounded-xl p-4 mb-4 shadow-lg">
+              <div className="flex items-center gap-3 mb-2">
                 <h2 className="text-xl text-white font-medium">Meme Agent</h2>
                 <span className="px-2 py-1 rounded-full bg-[#444444] text-sm text-gray-300">
                   MOA Exclusive
@@ -135,7 +135,7 @@ const MemeGenerator = () => {
               <div className="relative">
                 <input
                   type="text"
-                  className="w-full p-4 pr-12 bg-[#333333] text-white rounded-full border border-gray-600 focus:outline-none focus:border-gray-500"
+                  className="w-full p-3 pr-12 bg-[#333333] text-white rounded-full border border-gray-600 focus:outline-none focus:border-gray-500"
                   placeholder="F.e. cats, space, cats in space..."
                   value={topic}
                   onChange={(e) => setTopic(e.target.value)}
@@ -161,27 +161,27 @@ const MemeGenerator = () => {
               </div>
 
               {/* Stats and results */}
-              <div className="mt-4 text-gray-400 text-center">
+              <div className="mt-2 text-gray-400 text-center">
                 {timerRunning && <p>Time elapsed: {seconds} seconds</p>}
-                <p className="mt-2">
+                <p className="mt-1">
                   Total memes generated:{" "}
                   <span className="font-bold">{clicks}</span>
                 </p>
               </div>
               {error && (
-                <div className="mt-4 text-red-500 text-center">{error}</div>
+                <div className="mt-2 text-red-500 text-center">{error}</div>
               )}
               {memeUrl && (
-                <div className="mt-6 text-center">
+                <div className="mt-4 flex justify-center">
                   <img
                     src={memeUrl}
                     alt="Generated Meme"
-                    className="w-full h-auto rounded-lg border border-gray-700"
+                    className="max-h-[50vh] max-w-[600px] rounded-lg border border-gray-700"
                   />
                 </div>
               )}
               {hasUsedGenerator && !isSignedIn && (
-                <div className="mt-4 text-center text-gray-400">
+                <div className="mt-2 text-center text-gray-400">
                   Please sign in to continue generating memes!
                 </div>
               )}
@@ -190,14 +190,16 @@ const MemeGenerator = () => {
 
           {/* Meme Robot Image - Only show when no meme is generated */}
           {!memeUrl && (
-            <div className="w-full max-w-[400px]">
-              <Image
-                src="/memerobot.png"
-                alt="Meme Robot"
-                width={400}
-                height={400}
-                className="rounded-lg"
-              />
+            <div className="flex justify-center w-full">
+              <div className="w-[300px]">
+                <Image
+                  src="/memerobot.png"
+                  alt="Meme Robot"
+                  width={300}
+                  height={300}
+                  className="rounded-lg"
+                />
+              </div>
             </div>
           )}
         </div>
