@@ -107,7 +107,7 @@ export default function Navbar() {
           </div>
 
           {/* Search Bar */}
-          <div className="flex-1 flex justify-center items-center max-w-3xl mx-auto px-4">
+          <div className="flex-1 flex justify-center items-center max-w-3xl mx-auto px-4 mt-[6px]">
             <div className="w-full flex">
               <input
                 type="text"
@@ -148,8 +148,15 @@ export default function Navbar() {
               </SignInButton>
             </SignedOut>
             <SignedIn>
-              <div className="scale-125">
-                <UserButton />
+              <div className="scale-90">
+                <UserButton
+                  afterSignOutUrl="/"
+                  appearance={{
+                    elements: {
+                      avatarBox: "w-8 h-8",
+                    },
+                  }}
+                />
               </div>
             </SignedIn>
           </div>
