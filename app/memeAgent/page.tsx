@@ -133,16 +133,13 @@ const MemeGenerator = () => {
             {/* First capsule */}
             <div className="bg-[#333333] rounded-xl p-6 mb-8 shadow-lg inline-block max-w-[600px]">
               <div className="flex items-center gap-3 mb-4">
-                <h2 className="text-xl text-white font-medium">
-                  MOA Meme Agent
-                </h2>
+                <h2 className="text-xl text-white font-medium">Meme Agent</h2>
                 <span className="px-2 py-1 rounded-full bg-[#444444] text-sm text-gray-300">
-                  c.ai
+                  MOA Exlusive
                 </span>
               </div>
               <p className="text-gray-300 text-lg">
-                Tell me what Meme you&aposd like to make, and I&aposll make it
-                for you
+                Write a prompt and I will generate a meme for you!
               </p>
             </div>
 
