@@ -139,7 +139,7 @@ export default function Navbar() {
           </div>
 
           {/* Profile Section */}
-          <div className="flex items-center mr-4">
+          <div className="flex items-center mr-4 mt-[6px]">
             <SignedOut>
               <SignInButton mode="modal">
                 <button className="px-4 py-2 rounded-full border border-gray-600 text-white hover:bg-[#272727] transition-colors text-base font-medium">
@@ -148,12 +148,12 @@ export default function Navbar() {
               </SignInButton>
             </SignedOut>
             <SignedIn>
-              <div className="scale-90">
+              <div className="scale-100">
                 <UserButton
                   afterSignOutUrl="/"
                   appearance={{
                     elements: {
-                      avatarBox: "w-8 h-8",
+                      avatarBox: "w-9 h-9",
                     },
                   }}
                 />
