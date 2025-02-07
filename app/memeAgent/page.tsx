@@ -136,7 +136,7 @@ const MemeGenerator = () => {
                 <input
                   type="text"
                   className="w-full p-4 pr-12 bg-[#333333] text-white rounded-full border border-gray-600 focus:outline-none focus:border-gray-500"
-                  placeholder="Send a message..."
+                  placeholder="F.e. cats, space, cats in space..."
                   value={topic}
                   onChange={(e) => setTopic(e.target.value)}
                 />
