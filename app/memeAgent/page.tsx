@@ -114,28 +114,15 @@ const MemeGenerator = () => {
     <>
       <Navbar />
       <div className="min-h-screen bg-[#141414] pl-16 pt-12">
-        <div className="container mx-auto flex flex-col md:flex-row items-start gap-8 mt-5">
-          {/* Left side - Robot Image */}
-          <div className="md:w-1/3">
-            <div className="sticky top-24">
-              <Image
-                src="/memerobot.png"
-                alt="Meme Robot"
-                width={400}
-                height={400}
-                className="rounded-lg"
-              />
-            </div>
-          </div>
-
-          {/* Right side - Chat style intro and form */}
-          <div className="md:w-2/3">
+        <div className="container mx-auto flex flex-col items-center gap-8 mt-5">
+          {/* Chat style intro and form */}
+          <div className="w-full max-w-[600px]">
             {/* First capsule */}
-            <div className="bg-[#333333] rounded-xl p-6 mb-8 shadow-lg inline-block max-w-[600px]">
+            <div className="bg-[#333333] rounded-xl p-6 mb-8 shadow-lg">
               <div className="flex items-center gap-3 mb-4">
                 <h2 className="text-xl text-white font-medium">Meme Agent</h2>
                 <span className="px-2 py-1 rounded-full bg-[#444444] text-sm text-gray-300">
-                  MOA Exlusive
+                  MOA Exclusive
                 </span>
               </div>
               <p className="text-gray-300 text-lg">
@@ -143,10 +130,8 @@ const MemeGenerator = () => {
               </p>
             </div>
 
-            {/* Form content - now also inline-block */}
-            <div className="inline-block w-[600px]">
-              {" "}
-              {/* Matching width with top capsule */}
+            {/* Form content */}
+            <div className="w-full">
               <div className="relative">
                 <input
                   type="text"
@@ -174,7 +159,8 @@ const MemeGenerator = () => {
                   </svg>
                 </button>
               </div>
-              {/* Stats and results below the input */}
+
+              {/* Stats and results */}
               <div className="mt-4 text-gray-400 text-center">
                 {timerRunning && <p>Time elapsed: {seconds} seconds</p>}
                 <p className="mt-2">
@@ -201,6 +187,19 @@ const MemeGenerator = () => {
               )}
             </div>
           </div>
+
+          {/* Meme Robot Image - Only show when no meme is generated */}
+          {!memeUrl && (
+            <div className="w-full max-w-[400px]">
+              <Image
+                src="/memerobot.png"
+                alt="Meme Robot"
+                width={400}
+                height={400}
+                className="rounded-lg"
+              />
+            </div>
+          )}
         </div>
       </div>
     </>
