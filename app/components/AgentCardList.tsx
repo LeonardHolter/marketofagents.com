@@ -158,7 +158,7 @@ export default function AgentList() {
 
       {filteredCategories.length === 0 && searchQuery && (
         <div className="text-center text-gray-400 mt-8">
-          No agents found matching "{searchQuery}"
+          No agents found matching &ldquo;{searchQuery}&rdquo;
         </div>
       )}
     </>
