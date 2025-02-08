@@ -149,20 +149,20 @@ export default function AgentList() {
   return (
     <>
       {/*<TypewriterBanner />*/}
-      <div className="container mx-auto px-4 mt-12">
+      <div className="container mx-auto px-4 mt-12 min-h-[calc(100vh-180px)]">
         {/* Add a key to help React track updates */}
         <div key={searchQuery}>
           {filteredCategories.map((category) => (
             <Category categoryObj={category} key={category.name} />
           ))}
         </div>
-      </div>
 
-      {filteredCategories.length === 0 && searchQuery && (
-        <div className="text-center text-gray-400 mt-8">
-          No agents found matching &ldquo;{searchQuery}&rdquo;
-        </div>
-      )}
+        {filteredCategories.length === 0 && searchQuery && (
+          <div className="text-center text-gray-400 mt-8">
+            No agents found matching &ldquo;{searchQuery}&rdquo;
+          </div>
+        )}
+      </div>
     </>
   );
 }
