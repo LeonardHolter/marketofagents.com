@@ -10,8 +10,10 @@ export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
 
-  // Add debounce to avoid too many URL updates
+  // Only update URL if we're on the home page
   useEffect(() => {
+    if (pathname !== "/") return;
+
     const timeoutId = setTimeout(() => {
       if (searchQuery.trim()) {
         router.push(`/?search=${encodeURIComponent(searchQuery.trim())}`, {
@@ -20,7 +22,7 @@ export default function Navbar() {
       } else {
         router.push("/", { scroll: false });
       }
-    }, 300); // 300ms delay
+    }, 300);
 
     return () => clearTimeout(timeoutId);
   }, [searchQuery, router]);
