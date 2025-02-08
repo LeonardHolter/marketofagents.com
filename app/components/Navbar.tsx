@@ -3,6 +3,7 @@ import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -113,10 +114,12 @@ export default function Navbar() {
               </svg>
             </button>
             <Link href="/">
-              <img
+              <Image
                 src="/MOAWHITE.png"
-                className="object-contain w-28 h-auto ml-4"
                 alt="Market of Agents"
+                width={112}
+                height={40}
+                className="object-contain w-28 h-auto ml-4"
               />
             </Link>
           </div>

@@ -173,9 +173,11 @@ const MemeGenerator = () => {
               )}
               {memeUrl && (
                 <div className="mt-4 flex justify-center">
-                  <img
+                  <Image
                     src={memeUrl}
                     alt="Generated Meme"
+                    width={600}
+                    height={400}
                     className="max-h-[50vh] max-w-[600px] rounded-lg border border-gray-700"
                   />
                 </div>

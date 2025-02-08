@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -16,9 +17,11 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="hover:opacity-80 transition-opacity"
           >
-            <img
+            <Image
               src="/discord-mark-blue.png"
               alt="Discord"
+              width={24}
+              height={24}
               className="w-6 h-6"
             />
           </a>
@@ -28,7 +31,13 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="hover:opacity-80 transition-opacity"
           >
-            <img src="/linkedin-icon.png" alt="LinkedIn" className="w-5 h-5" />
+            <Image
+              src="/linkedin-icon.png"
+              alt="LinkedIn"
+              width={20}
+              height={20}
+              className="w-5 h-5"
+            />
           </a>
           <a
             href="https://x.com/leonardholter17"
@@ -36,7 +45,13 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="hover:opacity-80 transition-opacity"
           >
-            <img src="/twitter-icon.png" alt="Twitter" className="w-5 h-5" />
+            <Image
+              src="/twitter-icon.png"
+              alt="Twitter"
+              width={20}
+              height={20}
+              className="w-5 h-5"
+            />
           </a>
         </div>
 

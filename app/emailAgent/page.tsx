@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import LabelManager from "../components/LabelManager";
 import { useUser } from "@clerk/nextjs";
 
@@ -14,13 +14,7 @@ const EmailAgentPage = () => {
   const [error, setError] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  // Check if monitoring is active on component mount
-  useEffect(() => {
-    checkMonitoringStatus();
-    checkAuthStatus();
-  }, []);
-
-  const checkMonitoringStatus = async () => {
+  const checkMonitoringStatus = useCallback(async () => {
     try {
       const response = await fetch("http://127.0.0.1:5000/active_monitors");
       const data = await response.json();
@@ -28,9 +22,9 @@ const EmailAgentPage = () => {
     } catch {
       setError("Failed to check monitoring status");
     }
-  };
+  }, [userId]);
 
-  const checkAuthStatus = async () => {
+  const checkAuthStatus = useCallback(async () => {
     try {
       const response = await fetch(
         `http://127.0.0.1:5000/check_auth/${userId}`
@@ -41,7 +35,12 @@ const EmailAgentPage = () => {
       setIsAuthenticated(false);
       setError("Failed to check authentication status");
     }
-  };
+  }, [userId]);
+
+  useEffect(() => {
+    checkAuthStatus();
+    checkMonitoringStatus();
+  }, [checkAuthStatus, checkMonitoringStatus]);
 
   const startAuthentication = async () => {
     try {
