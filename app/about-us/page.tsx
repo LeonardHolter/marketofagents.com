@@ -4,6 +4,7 @@ import React from "react";
 import NavBar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function AboutUs() {
   return (
@@ -44,9 +45,12 @@ export default function AboutUs() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="flex-shrink-0 mb-6 md:mb-0"
             >
-              <img
+              <Image
                 src="/poster.png"
                 alt="Market of Agents Poster"
+                width={500}
+                height={300}
+                priority
                 className="w-[500px] h-auto mx-auto md:mx-0 rounded-lg shadow-2xl"
               />
             </motion.div>
@@ -65,7 +69,7 @@ export default function AboutUs() {
                 </span>
                 ! We are proud to offer a one-stop marketplace where you can
                 find all kinds of AI agents tailored to your needs. Whether
-                you&aposre looking for{" "}
+                you&apos;re looking for{" "}
                 <span className="font-semibold bg-red-100 px-2 py-1 rounded">
                   meme creators
                 </span>

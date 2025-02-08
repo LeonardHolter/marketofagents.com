@@ -22,7 +22,6 @@ export interface AgentObj {
 export default function AgentList() {
   const searchParams = useSearchParams();
   const searchQuery = searchParams.get("search")?.toLowerCase() || "";
-  const categoryQuery = searchParams.get("category")?.toLowerCase() || "";
 
   const categoryData: CategoryObj[] = [
     {
