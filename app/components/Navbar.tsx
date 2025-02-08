@@ -1,7 +1,7 @@
 "use client";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
 export default function Navbar() {
@@ -10,14 +10,20 @@ export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
 
-  const handleSearch = () => {
-    // Add search query to URL
-    if (searchQuery.trim()) {
-      router.push(`/?search=${encodeURIComponent(searchQuery.trim())}`);
-    } else {
-      router.push("/");
-    }
-  };
+  // Add debounce to avoid too many URL updates
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      if (searchQuery.trim()) {
+        router.push(`/?search=${encodeURIComponent(searchQuery.trim())}`, {
+          scroll: false,
+        });
+      } else {
+        router.push("/", { scroll: false });
+      }
+    }, 300); // 300ms delay
+
+    return () => clearTimeout(timeoutId);
+  }, [searchQuery, router]);
 
   const navItems = [
     {
@@ -120,13 +126,9 @@ export default function Navbar() {
                 placeholder="Search"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && handleSearch()}
                 className="w-full px-4 py-2 bg-[#121212] text-white placeholder-gray-400 border border-gray-600 focus:border-white/30 focus:outline-none rounded-l-full text-base"
               />
-              <button
-                onClick={handleSearch}
-                className="px-6 py-2 bg-[#272727] hover:bg-[#3d3d3d] text-gray-200 rounded-r-full border border-l-0 border-gray-600 flex items-center justify-center transition-colors"
-              >
+              <div className="px-6 py-2 bg-[#272727] text-gray-200 rounded-r-full border border-l-0 border-gray-600 flex items-center justify-center">
                 <svg
                   className="w-5 h-5"
                   fill="none"
@@ -140,7 +142,7 @@ export default function Navbar() {
                     d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                   />
                 </svg>
-              </button>
+              </div>
             </div>
           </div>
 

@@ -150,10 +150,12 @@ export default function AgentList() {
     <>
       {/*<TypewriterBanner />*/}
       <div className="container mx-auto px-4 mt-12">
-        {/* Categories */}
-        {filteredCategories.map((category) => (
-          <Category categoryObj={category} key={category.name} />
-        ))}
+        {/* Add a key to help React track updates */}
+        <div key={searchQuery}>
+          {filteredCategories.map((category) => (
+            <Category categoryObj={category} key={category.name} />
+          ))}
+        </div>
       </div>
 
       {filteredCategories.length === 0 && searchQuery && (
