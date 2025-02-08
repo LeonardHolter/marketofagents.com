@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
+import DarkModeToggle from "../components/DarkModeToggle";
 
 export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -153,7 +154,8 @@ export default function Navbar() {
           </div>
 
           {/* Profile Section */}
-          <div className="flex items-center mr-4 mt-[6px]">
+          <div className="flex items-center mr-4 mt-[6px] gap-8">
+            <DarkModeToggle />
             <SignedOut>
               <SignInButton mode="modal">
                 <button className="px-4 py-2 rounded-full border border-gray-600 text-white hover:bg-[#272727] transition-colors text-base font-medium">
