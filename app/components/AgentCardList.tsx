@@ -2,6 +2,7 @@
 
 import Category from "./Category";
 /* import TypewriterBanner from "./TypewriterBanner";*/
+import { useSearchParams } from "next/navigation";
 
 export interface CategoryObj {
   name: string;
@@ -19,6 +20,9 @@ export interface AgentObj {
 }
 
 export default function AgentList() {
+  const searchParams = useSearchParams();
+  const searchQuery = searchParams.get("search")?.toLowerCase() || "";
+
   const categoryData: CategoryObj[] = [
     {
       name: "MOA Exclusive",
@@ -123,15 +127,40 @@ export default function AgentList() {
     },
   ];
 
+  // Filter function for agents
+  const matchesSearch = (agent: AgentObj) => {
+    if (!searchQuery) return true;
+
+    return (
+      agent.displayName.toLowerCase().includes(searchQuery) ||
+      agent.description.toLowerCase().includes(searchQuery) ||
+      agent.creator.toLowerCase().includes(searchQuery)
+    );
+  };
+
+  // Filter and render categories
+  const filteredCategories = categoryData
+    .map((category) => ({
+      ...category,
+      agents: category.agents.filter(matchesSearch),
+    }))
+    .filter((category) => category.agents.length > 0);
+
   return (
     <>
       {/*<TypewriterBanner />*/}
       <div className="container mx-auto px-4 mt-12">
         {/* Categories */}
-        {categoryData.map((category) => (
+        {filteredCategories.map((category) => (
           <Category categoryObj={category} key={category.name} />
         ))}
       </div>
+
+      {filteredCategories.length === 0 && searchQuery && (
+        <div className="text-center text-gray-400 mt-8">
+          No agents found matching "{searchQuery}"
+        </div>
+      )}
     </>
   );
 }

@@ -2,15 +2,21 @@
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState("");
   const [isMenuExpanded, setIsMenuExpanded] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
 
   const handleSearch = () => {
-    console.log("Searching for:", searchQuery);
+    // Add search query to URL
+    if (searchQuery.trim()) {
+      router.push(`/?search=${encodeURIComponent(searchQuery.trim())}`);
+    } else {
+      router.push("/");
+    }
   };
 
   const navItems = [
