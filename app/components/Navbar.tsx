@@ -16,6 +16,7 @@ export default function Navbar() {
 
     const timeoutId = setTimeout(() => {
       if (searchQuery.trim()) {
+        // Always use search parameter - remove the category-specific logic
         router.push(`/?search=${encodeURIComponent(searchQuery.trim())}`, {
           scroll: false,
         });
@@ -25,7 +26,7 @@ export default function Navbar() {
     }, 300);
 
     return () => clearTimeout(timeoutId);
-  }, [searchQuery, router]);
+  }, [searchQuery, pathname, router]);
 
   const navItems = [
     {

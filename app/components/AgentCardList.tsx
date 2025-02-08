@@ -22,6 +22,7 @@ export interface AgentObj {
 export default function AgentList() {
   const searchParams = useSearchParams();
   const searchQuery = searchParams.get("search")?.toLowerCase() || "";
+  const categoryQuery = searchParams.get("category")?.toLowerCase() || "";
 
   const categoryData: CategoryObj[] = [
     {
@@ -89,7 +90,7 @@ export default function AgentList() {
       ],
     },
     {
-      name: "All Non-MOA Exlusive Agents",
+      name: "Non-MOA",
       agents: [
         {
           fileName: "replitAgent",
@@ -128,13 +129,14 @@ export default function AgentList() {
   ];
 
   // Filter function for agents
-  const matchesSearch = (agent: AgentObj) => {
+  const matchesSearch = (agent: AgentObj, categoryName: string) => {
     if (!searchQuery) return true;
 
     return (
       agent.displayName.toLowerCase().includes(searchQuery) ||
       agent.description.toLowerCase().includes(searchQuery) ||
-      agent.creator.toLowerCase().includes(searchQuery)
+      agent.creator.toLowerCase().includes(searchQuery) ||
+      categoryName.toLowerCase().includes(searchQuery)
     );
   };
 
@@ -142,7 +144,9 @@ export default function AgentList() {
   const filteredCategories = categoryData
     .map((category) => ({
       ...category,
-      agents: category.agents.filter(matchesSearch),
+      agents: category.agents.filter((agent) =>
+        matchesSearch(agent, category.name)
+      ),
     }))
     .filter((category) => category.agents.length > 0);
 
