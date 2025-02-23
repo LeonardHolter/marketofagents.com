@@ -25,8 +25,26 @@ export default function AgentList() {
 
   const categoryData: CategoryObj[] = [
     {
-      name: "MOA Exclusive",
+      name: "MOA Exclusive: We Create Agents For Students!",
       agents: [
+        {
+          fileName: "paperwriterAgent",
+          displayName: "Paper Writer Agent",
+          description: "For researching and writing academic papers",
+          image: "/paperwriterAgent.png",
+          creator: "@Filip",
+          id: "paperwriterAgent",
+        },
+
+        {
+          fileName: "notetakerAgent",
+          displayName: "Note Taker Agent",
+          description: "Makes notes from PDFs",
+          image: "/notetakerAgent.png",
+          creator: "@Filip",
+          id: "notetakerAgent",
+        },
+
         {
           fileName: "memeAgent",
           displayName: "Meme Agent",
@@ -39,7 +57,7 @@ export default function AgentList() {
         {
           fileName: "diningAgent",
           displayName: "Columbia Dining Hall",
-          description: "Dining recommendations.",
+          description: "Dining recommendations for Columbia Dining Halls",
           image: "/diningAgent.png",
           creator: "@Leonard",
           id: "diningAgent",
